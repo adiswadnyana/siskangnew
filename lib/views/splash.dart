@@ -5,6 +5,7 @@ import 'package:splashscreen/splashscreen.dart';
 
 
 
+
 class Splash extends StatefulWidget {
 Splash({Key? key}):super(key: key);
   _Splash createState()=> _Splash();
@@ -49,17 +50,25 @@ class _Splash extends State<Splash> {
     }
     });
 
-    return Center(
-      child: SplashScreen(
+    return  SplashScreen.timer(
       seconds: 1,
-      title: new Text('SisKa'),
-      image: new Image.asset('assets/images/LogoUndiksha.png'),
+      title : const Text(
+        'SiSka',
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+      ),
+      loaderColor: Colors.blue,
+      loadingText: Text('Loading...'),
+      loadingTextPadding: EdgeInsets.only(top: 5.0),
+      image: Image.asset(
+        'assets/images/LogoUndiksha.png',
+      ),
       backgroundColor: Colors.white,
       styleTextUnderTheLoader: new TextStyle(),
       photoSize: 100.0,
-      loaderColor: Colors.blue
-    ),
     );
+
+
+    
   }
 }
 

@@ -37,8 +37,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => Profile2());
     case loginViewRoute:
       return MaterialPageRoute(builder: (context) => LoginPage());
-    case registerViewRoute:
-      return MaterialPageRoute(builder: (context) => RegisterPage());
+    // case registerViewRoute:
+    //   return MaterialPageRoute(builder: (context) => RegisterPage());
     case jadwalViewRoute:
       return MaterialPageRoute(builder: (context) => JadwalScreen());
     case notifSendViewRoute:

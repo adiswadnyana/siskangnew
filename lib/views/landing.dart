@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_new
-
 import 'package:flutter/material.dart';
 import 'package:SisKa/_routing/routes.dart';
 import 'package:SisKa/utils/colors.dart';
@@ -81,7 +79,8 @@ class LandingPage extends StatelessWidget {
           'MASUK',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            fontSize: 20.0,
+            fontSize: 15.0,
+            color: Colors.black
           ),
         ),
       ),
@@ -103,7 +102,8 @@ class LandingPage extends StatelessWidget {
           'DAFTAR',
           style: TextStyle(
             fontWeight: FontWeight.w600,
-            fontSize: 20.0,
+            fontSize: 15.0,
+            color: Colors.black,
           ),
         ),
       ),
