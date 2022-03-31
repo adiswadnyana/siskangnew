@@ -12,7 +12,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hr = Divider();
+    final hr = const Divider();
     final userStats = Positioned(
       bottom: 10.0,
       left: 40.0,
@@ -46,7 +46,7 @@ class ProfilePage extends StatelessWidget {
         children: <Widget>[
           Text(
             user.name!,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24.0,
               fontWeight: FontWeight.w900,
             ),
@@ -86,7 +86,7 @@ class ProfilePage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     userImage,
-                    SizedBox(width: 10.0),
+                    const SizedBox(width: 10.0),
                     userNameLocation
                   ],
                 ),
@@ -99,7 +99,7 @@ class ProfilePage extends StatelessWidget {
     );
 
     final secondCard = Padding(
-      padding: EdgeInsets.only(right: 20.0, left: 20.0, bottom: 30.0),
+      padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 30.0),
       child: Material(
         elevation: 5.0,
         borderRadius: BorderRadius.circular(8.0),
@@ -124,7 +124,7 @@ class ProfilePage extends StatelessWidget {
     );
 
     final thirdCard = Padding(
-      padding: EdgeInsets.only(right: 20.0, left: 20.0, bottom: 30.0),
+      padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 30.0),
       child: Material(
         elevation: 5.0,
         borderRadius: BorderRadius.circular(8.0),
@@ -167,7 +167,7 @@ class ProfilePage extends StatelessWidget {
                       ),
                       Container(
                         height: 250.0,
-                        decoration: BoxDecoration(gradient: primaryGradient),
+                        decoration: const BoxDecoration(gradient: primaryGradient),
                       ),
                       Positioned(top: 100, right: 0, left: 0, child: userInfo)
                     ],
@@ -195,7 +195,7 @@ class ProfilePage extends StatelessWidget {
         ),
         Text(
           value,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.w900,
             fontSize: 20.0,
@@ -207,7 +207,7 @@ class ProfilePage extends StatelessWidget {
 
   Widget _buildIconTile(IconData icon, Color color, String title) {
     return ListTile(
-      title: Text(title, style: TextStyle(fontWeight: FontWeight.bold),),
+      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold),),
       leading: Container(
         height: 30.0,
         width: 30.0,
@@ -222,7 +222,7 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
-      trailing: Icon(LineIcons.chevronCircleRight),
+      trailing: const Icon(LineIcons.chevronCircleRight),
     );
   }
 }

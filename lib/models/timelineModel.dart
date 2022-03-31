@@ -215,11 +215,11 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Pengajuan Proposal",
       time: datas.tglPengajuanProposal,
       status: datas.statusPengajuanProposal,
-      icon: Icon(LineIcons.book, color: Colors.white),
+      icon: const Icon(LineIcons.book, color: Colors.white),
       backicon: datas.tglPengajuanProposal!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                    size: 40, ):Icon(LineIcons.times,
+                    size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.cyan
@@ -229,11 +229,11 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Upload Proposal",
       time: datas.tglUploadProposal,  
        status: datas.verifikasiKelayakanKroposal,    
-      icon: Icon(LineIcons.book, color: Colors.white),
+      icon: const Icon(LineIcons.book, color: Colors.white),
       backicon: datas.tglPengajuanProposal!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                    size: 40, ):Icon(LineIcons.times,
+                    size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.cyan
@@ -244,14 +244,14 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Ujian Proposal",
       time: datas.tglVerifikasiUjianProposal,
       status: datas.statusUjianProposal,
-     icon: Icon(
+     icon: const Icon(
         LineIcons.userSecret,
         color: Colors.white,
       ),
       backicon: datas.tglVerifikasiUjianProposal!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                    size: 40, ):Icon(LineIcons.times,
+                    size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.green
@@ -261,14 +261,14 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Revisi Proposal",
       time: datas.tglVerifikasiRevisiProposal,
       status: datas.verifikasiRevisiProposal,
-     icon: Icon(
+     icon: const Icon(
         LineIcons.edit,
         color: Colors.white,
       ),
       backicon: datas.tglVerifikasiRevisiProposal!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                    size: 40, ):Icon(LineIcons.times,
+                    size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.orange
@@ -278,14 +278,14 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Upload Pratesis",
       time: datas.tglUploadPratesis,
       status: datas.verifikasiPratesisKelayakan,
-     icon: Icon(
+     icon: const Icon(
         LineIcons.book,
         color: Colors.white,
       ),
       backicon: datas.tglUploadPratesis!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                    size: 40, ):Icon(LineIcons.times,
+                    size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.cyan
@@ -295,14 +295,14 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Ujian Pratesis",
       time: datas.tglStatusPratesisUjian,
       status: datas.statusPratesisUjian,
-      icon: Icon(
+      icon: const Icon(
           LineIcons.userSecret,
           color: Colors.white,
         ),
       backicon: datas.tglStatusPratesisUjian!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                    size: 40, ):Icon(LineIcons.times,
+                    size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.green
@@ -312,14 +312,14 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Revisi Pratesis",
       time: datas.tglStatusPratesisPevisi,
       status: datas.statusPratesisPevisi,
-      icon: Icon(
+      icon: const Icon(
           LineIcons.edit,
           color: Colors.white,
         ),
       backicon: datas.tglStatusPratesisPevisi!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                    size: 40, ):Icon(LineIcons.times,
+                    size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.orange
@@ -329,14 +329,14 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Upload Tesis",
       time: datas.tglTesisUpload,
       status: datas.verifikasiTesisKelayakan,
-      icon: Icon(
+      icon: const Icon(
           LineIcons.book,
           color: Colors.white,
         ),
       backicon: datas.tglTesisUpload!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                    size: 40, ):Icon(LineIcons.times,
+                    size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.cyan
@@ -346,14 +346,14 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Ujian Tesis ",
       time: datas.tglTesisUjian,
       status: datas.statusTesisUjian,
-      icon: Icon(
+      icon: const Icon(
           LineIcons.userSecret,
           color: Colors.white,
         ),
       backicon: datas.tglTesisUjian!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                   size: 40, ):Icon(LineIcons.times,
+                   size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.green
@@ -363,14 +363,14 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Revisi Tesis ",
       time: datas.tglTesisUjian,
       status: datas.verifikasiTesisRevisi,
-      icon: Icon(
+      icon: const Icon(
           LineIcons.edit,
           color: Colors.white,
         ),
       backicon: datas.tglTesisUjian!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                    size: 40, ):Icon(LineIcons.times,
+                    size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.orange
@@ -380,14 +380,14 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       name: "Wisuda ",
       time: datas.tglTesisUjian,
       status: "Lulus",
-      icon: Icon(
+      icon: const Icon(
           LineIcons.graduationCap,
           color: Colors.white,
         ),
       backicon: datas.tglTesisUjian!="Belum Ditentukan"? 
-                    Icon(Icons.check,
+                    const Icon(Icons.check,
                     color: Colors.green,
-                    size: 40, ):Icon(LineIcons.times,
+                    size: 40, ):const Icon(LineIcons.times,
                     color: Colors.red,
                     size: 40, ),
       iconBackground: Colors.blue

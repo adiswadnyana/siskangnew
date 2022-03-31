@@ -80,12 +80,12 @@ class _Profile2 extends State<Profile2>{
         context: context,
         builder: (context) {
           return CupertinoAlertDialog(
-            title: Text("Konfirmasi"),
-            content: Text("Yakin mau keluar?\nNanti tidak dapat notifikasi lagi loh"),
+            title: const Text("Konfirmasi"),
+            content: const Text("Yakin mau keluar?\n"),
             actions: <Widget>[
       CupertinoDialogAction(
       isDefaultAction: true,
-      child: Text("Ya"),
+      child: const Text("Ya"),
        onPressed: () {
           apiService.logOut().then((isSuccess) {
           setState(()  {
@@ -97,7 +97,7 @@ class _Profile2 extends State<Profile2>{
               
     Center(
       child: CupertinoDialogAction(
-        child: Text("Batal"),
+        child: const Text("Batal"),
         onPressed: () { Navigator.pop(context);},
           ),
     ),
@@ -124,7 +124,7 @@ class _Profile2 extends State<Profile2>{
 
   
   Widget build(BuildContext context){
-     final hr = Divider();
+     final hr = const Divider();
       final userImage =   Positioned(
               top: 150.0, // (background container size) - (circle height / 2)
               child:Container(
@@ -147,7 +147,7 @@ class _Profile2 extends State<Profile2>{
    
    
     final secondCard = Padding(
-      padding: EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10.0, top: 50),
+      padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10.0, top: 50),
       child: new SingleChildScrollView(
     child: Material(
         elevation: 5.0,
@@ -163,16 +163,16 @@ class _Profile2 extends State<Profile2>{
           child: Column(
             children: <Widget>[
               _buildUserStats(_namaUser,_jurusan),
-              _jabatan=='0'? _buildMasaStudi(_studiAwal,_studiAkhir,_sisaStudi):Icon(LineIcons.users, color: Colors.transparent,),
-              _jabatan=='0'? _buildStatusPenelitian(_statusPenelitian):Icon(LineIcons.users, color: Colors.transparent,),
+              _jabatan=='0'? _buildMasaStudi(_studiAwal,_studiAkhir,_sisaStudi):const Icon(LineIcons.users, color: Colors.transparent,),
+              _jabatan=='0'? _buildStatusPenelitian(_statusPenelitian):const Icon(LineIcons.users, color: Colors.transparent,),
 hr,
               
                
             _jabatan=='0'? Card(
                child: InkWell(
-                child: ListTile(
-                  leading: Icon(LineIcons.lineChart, color: Colors.blue,),
-                  title: Text('Timeline', style: TextStyle(color: Colors.blue),),
+                child: const ListTile(
+                  leading: const Icon(LineIcons.lineChart, color: Colors.blue,),
+                  title: Text('Timeline', style: const TextStyle(color: Colors.blue),),
                   trailing: Icon(Icons.arrow_right, color: Colors.blue,),
                    
                 ),
@@ -185,10 +185,10 @@ hr,
                 ),
               ):Card(
                child: InkWell(
-                child: ListTile(
-                  leading: Icon(LineIcons.users, color: Colors.blue,),
-                  title: Text('Masa Studi', style: TextStyle(color: Colors.blue),),
-                  trailing: Icon(Icons.arrow_right, color: Colors.blue,),
+                child: const ListTile(
+                  leading: const Icon(LineIcons.users, color: Colors.blue,),
+                  title: Text('Masa Studi', style: const TextStyle(color: Colors.blue),),
+                  trailing: const Icon(Icons.arrow_right, color: Colors.blue,),
                    
                 ),
                 onTap: () {
@@ -201,10 +201,10 @@ hr,
               
              Card(
                child: InkWell(
-                child: ListTile(
-                  leading: Icon(LineIcons.barChart, color: Colors.blue,),
-                  title: Text('Dashboard', style: TextStyle(color: Colors.blue),),
-                  trailing: Icon(Icons.arrow_right, color: Colors.blue,),
+                child: const ListTile(
+                  leading: const Icon(LineIcons.barChart, color: Colors.blue,),
+                  title: const Text('Dashboard', style: TextStyle(color: Colors.blue),),
+                  trailing: const Icon(Icons.arrow_right, color: Colors.blue,),
                    
                 ),
                 onTap: () {
@@ -216,9 +216,9 @@ hr,
               ),
              Card(
                child: InkWell(
-                child: ListTile(
-                  leading: Icon(LineIcons.cogs, color: Colors.blue,),
-                  title: Text('Pengaturan Akun', style: TextStyle(color: Colors.blue),),
+                child: const ListTile(
+                  leading: const Icon(LineIcons.cogs, color: Colors.blue,),
+                  title: Text('Pengaturan Akun', style: const TextStyle(color: Colors.blue),),
                   trailing: Icon(Icons.arrow_right, color: Colors.blue,),
                    
                 ),
@@ -231,10 +231,10 @@ hr,
               ),
               _isAdmin=='1'? Card(
                child: InkWell(
-                child: ListTile(
-                  leading: Icon(LineIcons.circleAlt ,color: Colors.green,),
+                child: const ListTile(
+                  leading: const Icon(LineIcons.circleAlt ,color: Colors.green,),
                   title: Text('Ganti Akun', style: TextStyle(color: Colors.green),),
-                    trailing: Icon(Icons.arrow_right, color: Colors.green,),
+                    trailing: const Icon(Icons.arrow_right, color: Colors.green,),
                 ),
                 onTap: () {
                   setState(() {
@@ -243,12 +243,12 @@ hr,
                  
                  },
                 ),
-              ):Icon(LineIcons.users, color: Colors.transparent,),
+              ):const Icon(LineIcons.users, color: Colors.transparent,),
                Card(
                child: InkWell(
-                child: ListTile(
-                  leading: Icon(LineIcons.lock, color: Colors.red,),
-                  title: Text('Log Out', style: TextStyle(color: Colors.red),),
+                child: const ListTile(
+                  leading: const Icon(LineIcons.lock, color: Colors.red,),
+                  title: Text('Log Out', style: const TextStyle(color: Colors.red),),
                 ),
                 onTap: () {
                   setState(() {
@@ -282,10 +282,10 @@ hr,
               children: <Widget>[
                 Container(
                           height: 200.0,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             gradient: primaryGradient,
-                            image: DecorationImage(
-                              image: AssetImage('assets/images/LogoUndiksha.png'),
+                            image: const DecorationImage(
+                              image: const AssetImage('assets/images/LogoUndiksha.png'),
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -318,7 +318,7 @@ return Padding(
     borderRadius: BorderRadius.circular(5.0),
     child: Container(
       height: 60.0,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.transparent,
       ),
       child: Row(
@@ -327,7 +327,7 @@ return Padding(
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[ 
-        Text(
+        const Text(
           'Awal Studi' ,
           style:TextStyle(
       color: Colors.black54,
@@ -339,14 +339,14 @@ return Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Stack(
                           children:[
-                            Padding(
-                            padding: const EdgeInsets.all(0.0),
+                            const Padding(
+                            padding: EdgeInsets.all(0.0),
                           ),
                           SkeletonAnimation(
                             child: Center(
                               child: Text(
                                 studiAwal,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                 ),
                                 textAlign: TextAlign.center,
@@ -364,7 +364,7 @@ return Padding(
      Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[ 
-        Text(
+        const Text(
           'Sisa Masa Studi' ,
           style:TextStyle(
       color: Colors.black54,
@@ -376,14 +376,14 @@ return Padding(
               padding: const EdgeInsets.all(5.0),
               child: Stack(
                 children:[
-                  Padding(
-                  padding: const EdgeInsets.all(0.0),
+                  const Padding(
+                  padding: EdgeInsets.all(0.0),
                 ),
                 SkeletonAnimation(
                   child: Center(
                     child: Text(
                       sisaStudi+' '+'Bulan',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                       ),
                       textAlign: TextAlign.center,
@@ -400,9 +400,9 @@ return Padding(
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[ 
-        Text(
+        const Text(
           'Akhir Studi' ,
-          style:TextStyle(
+          style:const TextStyle(
       color: Colors.black54,
       fontSize: 14.0,
       fontWeight: FontWeight.bold
@@ -412,14 +412,14 @@ return Padding(
               padding: const EdgeInsets.all(5.0),
               child: Stack(
                 children:[
-                  Padding(
-                  padding: const EdgeInsets.all(0.0),
+                  const Padding(
+                  padding: EdgeInsets.all(0.0),
                 ),
                 SkeletonAnimation(
                   child: Center(
                     child: Text(
                       studiAkhir,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                       ),
                       textAlign: TextAlign.center,
@@ -450,7 +450,7 @@ return Padding(
     borderRadius: BorderRadius.circular(5.0),
     child: Container(
       height: 60.0,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.transparent,
       ),
       child: Row(
@@ -459,7 +459,7 @@ return Padding(
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[ 
-        Text(
+        const Text(
           'Tahap Akhir Penelitian' ,
           style:TextStyle(
       color: Colors.black54,
@@ -471,14 +471,14 @@ return Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Stack(
                           children:[
-                            Padding(
-                            padding: const EdgeInsets.all(0.0),
+                            const Padding(
+                            padding: EdgeInsets.all(0.0),
                           ),
                           SkeletonAnimation(
                             child: Center(
                               child: Text(
                                 status,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                 ),
                                 textAlign: TextAlign.center,
@@ -514,7 +514,7 @@ return Padding(
           alignment: Alignment.center,
          child: Text(
           name,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.w900,
             fontSize: 15.0,
@@ -539,7 +539,7 @@ return Padding(
 
   Widget _buildIconTile(IconData icon, Color color, String title) {
     return ListTile(
-      title: Text(title, style: TextStyle(fontWeight: FontWeight.bold),),
+      title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold),),
       leading: Container(
         height: 20.0,
         width: 20.0,
@@ -555,6 +555,6 @@ return Padding(
           ),
         ),
       ),
-      trailing: Icon(LineIcons.chevronCircleLeft),
+      trailing: const Icon(LineIcons.chevronCircleLeft),
     );
   }

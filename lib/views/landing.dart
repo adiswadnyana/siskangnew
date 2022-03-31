@@ -110,7 +110,7 @@ class LandingPage extends StatelessWidget {
     );
 
     final buttons = Padding(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         top: 80.0,
         bottom: 30.0,
         left: 30.0,
@@ -118,10 +118,10 @@ class LandingPage extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[loginBtn, 
-        SizedBox(height: 20.0), 
+        const SizedBox(height: 20.0), 
         registerBtn,
-        SizedBox(height: 20.0),
-        Text(
+        const SizedBox(height: 20.0),
+        const Text(
           '',
           style: TextStyle(
             fontWeight: FontWeight.w600,
@@ -137,8 +137,8 @@ class LandingPage extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(top: 70.0),
-              decoration: BoxDecoration(gradient: primaryGradient),
+              padding: const EdgeInsets.only(top: 70.0),
+              decoration: const BoxDecoration(gradient: primaryGradient),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Column(
@@ -148,7 +148,7 @@ class LandingPage extends StatelessWidget {
             Positioned(
               bottom: 0,
               child: Padding(
-                padding: EdgeInsets.only(left: 10.0),
+                padding: const EdgeInsets.only(left: 10.0),
                 child: Container(
                   height: 300.0,
                   width: MediaQuery.of(context).size.width,

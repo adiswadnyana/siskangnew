@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
 
     final passwordField = TextFormField(
       controller: _password,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: 'Password',
         labelStyle: TextStyle(color: Colors.white),
         prefixIcon: Icon(
