@@ -12,7 +12,6 @@ import 'package:SisKa/views/register.dart';
 import 'package:SisKa/views/reset_password.dart';
 import 'package:SisKa/views/timeline.dart';
 import 'package:SisKa/views/dashboard.dart';
-import 'package:SisKa/views/splash.dart';
 import 'package:SisKa/views/newsdetail.dart';
 import 'package:SisKa/views/notifDetil.dart';
 import 'package:SisKa/views/notifPenerima.dart';
@@ -20,6 +19,8 @@ import 'package:SisKa/views/settingProfile.dart';
 import 'package:SisKa/views/masastudi.dart';
 import 'package:SisKa/views/pdf.dart';
 import 'package:SisKa/views/userAllSa.dart';
+
+import '../views/splash.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -37,8 +38,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => Profile2());
     case loginViewRoute:
       return MaterialPageRoute(builder: (context) => LoginPage());
-    // case registerViewRoute:
-    //   return MaterialPageRoute(builder: (context) => RegisterPage());
+    case registerViewRoute:
+      return MaterialPageRoute(builder: (context) => RegisterPage());
     case jadwalViewRoute:
       return MaterialPageRoute(builder: (context) => JadwalScreen());
     case notifSendViewRoute:
