@@ -15,7 +15,7 @@ class NewsScreen extends StatefulWidget {
 }
 
 class _NewsScreenState extends State<NewsScreen> {
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+  // final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
   TextEditingController _textcari = new TextEditingController();
   ApiService apiService = new ApiService();
   List<News> listData = <News>[];
@@ -45,16 +45,16 @@ class _NewsScreenState extends State<NewsScreen> {
   }
 
   void fetchNews() async{
-        _firebaseMessaging.getToken().then((token){
-          apiService.updateToken(token!);
-          });
+    //     _firebaseMessaging.getToken().then((token){
+    //       apiService.updateToken(token!);
+    //       });
 
-      FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-       print("onMessage: $message");
-      });
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-       print("onResume: $message");
-    });
+    //   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    //    print("onMessage: $message");
+    //   });
+    // FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+    //    print("onResume: $message");
+    // });
   }
 
    void filterData(String key) async{

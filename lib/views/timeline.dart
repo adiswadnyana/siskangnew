@@ -16,12 +16,10 @@ class TimelinePage extends StatefulWidget {
 }
 
 
- 
-
 class _TimelinePageState extends State<TimelinePage> {
   final PageController pageController =
       PageController(initialPage: 1, keepPage: true);
-       final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+      //  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
       ApiService apiService = new ApiService();
    List<TimelineModelData> listData = <TimelineModelData>[];
     List<Penelitian> listPenelitian = <Penelitian>[];
@@ -49,21 +47,19 @@ void initState() {
       });
   }
 
-  Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-
-  print("Handling a background message: ${message.messageId}");
-}
+//   Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+//   print("Handling a background message: ${message.messageId}");
+// }
    void fetchNews() async{
-        _firebaseMessaging.getToken().then((token){
-          apiService.updateToken(token as String);
-          });
+        // _firebaseMessaging.getToken().then((token){
+        //   apiService.updateToken(token as String);
+        //   });
 
-        FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-         print("onMessage: $message");
-        });
+        // FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+        //  print("onMessage: $message");
+        // });
   
-        FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+        // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
     }
 
 
@@ -74,7 +70,7 @@ void initState() {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Timeline Penelitian'),
+          title: const Text('Timeline Penelitian'),
         ),
         body: timelineModel(TimelinePosition.Center)
         );
