@@ -98,11 +98,6 @@ void initState() {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Column( // Replace with a Row for horizontal icon + text
-                  children: <Widget>[
-                    doodle.backicon! ,
-                  ],
-                ),
                 const SizedBox(
                   height: 2.0,
                   width: 15,

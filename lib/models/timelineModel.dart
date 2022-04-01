@@ -22,375 +22,152 @@ class TimelineModelData {
 List<TimelineModelData> timelineFromJson(String jsonData) {
  List<Penelitian> list =  penelitianFromJson(jsonData);
  Penelitian datas =  list[0];
-
-
-//   return [
-//   TimelineModelData(
-//       name: "Proposal Submission",
-//       time: datas.tglPengajuanProposal,
-//       status: datas.statusPengajuanProposal,
-//       icon: Icon(LineIcons.book, color: Colors.white),
-//       backicon: datas.tglPengajuanProposal!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                     size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.cyan
-//       ),
-
-//       TimelineModelData(
-//       name: "Proposal File Upload",
-//       time: datas.tglUploadProposal,  
-//        status: datas.verifikasiKelayakanKroposal,    
-//       icon: Icon(LineIcons.book, color: Colors.white),
-//       backicon: datas.tglPengajuanProposal!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                     size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.cyan
-//       ),
- 
- 
-//   TimelineModelData(
-//       name: "Proposal Examination",
-//       time: datas.tglVerifikasiUjianProposal,
-//       status: datas.statusUjianProposal,
-//      icon: Icon(
-//         LineIcons.userSecret,
-//         color: Colors.white,
-//       ),
-//       backicon: datas.tglVerifikasiUjianProposal!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                     size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.green
-//       ),
- 
-//   TimelineModelData(
-//       name: "Proposal Revision",
-//       time: datas.tglVerifikasiRevisiProposal,
-//       status: datas.verifikasiRevisiProposal,
-//      icon: Icon(
-//         LineIcons.edit,
-//         color: Colors.white,
-//       ),
-//       backicon: datas.tglVerifikasiRevisiProposal!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                     size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.orange
-//       ),
-
-//     TimelineModelData(
-//       name: "Pre-Thesis File Upload",
-//       time: datas.tglUploadPratesis,
-//       status: datas.verifikasiPratesisKelayakan,
-//      icon: Icon(
-//         LineIcons.book,
-//         color: Colors.white,
-//       ),
-//       backicon: datas.tglUploadPratesis!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                     size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.cyan
-//       ),
-
-//      TimelineModelData(
-//       name: "Pre-Thesis Examination",
-//       time: datas.tglStatusPratesisUjian,
-//       status: datas.statusPratesisUjian,
-//       icon: Icon(
-//           LineIcons.userSecret,
-//           color: Colors.white,
-//         ),
-//       backicon: datas.tglStatusPratesisUjian!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                     size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.green
-//       ),
-
-//       TimelineModelData(
-//       name: "Pre-Thesis Revision",
-//       time: datas.tglStatusPratesisPevisi,
-//       status: datas.statusPratesisPevisi,
-//       icon: Icon(
-//           LineIcons.edit,
-//           color: Colors.white,
-//         ),
-//       backicon: datas.tglStatusPratesisPevisi!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                     size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.orange
-//       ),
-
-//       TimelineModelData(
-//       name: "Thesis File Upload",
-//       time: datas.tglTesisUpload,
-//       status: datas.verifikasiTesisKelayakan,
-//       icon: Icon(
-//           LineIcons.book,
-//           color: Colors.white,
-//         ),
-//       backicon: datas.tglTesisUpload!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                     size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.cyan
-//       ),
-
-//       TimelineModelData(
-//       name: "Thesis Examination ",
-//       time: datas.tglTesisUjian,
-//       status: datas.statusTesisUjian,
-//       icon: Icon(
-//           LineIcons.userSecret,
-//           color: Colors.white,
-//         ),
-//       backicon: datas.tglTesisUjian!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                    size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.green
-//       ),
-
-//       TimelineModelData(
-//       name: "Thesis Revision ",
-//       time: datas.tglTesisUjian,
-//       status: datas.verifikasiTesisRevisi,
-//       icon: Icon(
-//           LineIcons.edit,
-//           color: Colors.white,
-//         ),
-//       backicon: datas.tglTesisUjian!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                     size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.orange
-//       ),
-
-//       TimelineModelData(
-//       name: "Graduation ",
-//       time: datas.tglTesisUjian,
-//       status: "Passed",
-//       icon: Icon(
-//           LineIcons.graduation_cap,
-//           color: Colors.white,
-//         ),
-//       backicon: datas.tglTesisUjian!="Undecided"? 
-//                     Icon(Icons.check,
-//                     color: Colors.green,
-//                     size: 40, ):Icon(LineIcons.times,
-//                     color: Colors.red,
-//                     size: 40, ),
-//       iconBackground: Colors.blue
-//       ),
-  
-// ];
-
-
-  return [
+return [
   TimelineModelData(
       name: "Pengajuan Proposal",
-      time: datas.tglPengajuanProposal,
+      time: datas.tglPengajuanProposal != "Undecided" ? datas.tglPengajuanProposal : "",
       status: datas.statusPengajuanProposal,
-      icon: const Icon(LineIcons.book, color: Colors.white),
-      backicon: datas.tglPengajuanProposal!="Undecided"? 
+      icon: datas.tglPengajuanProposal!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                    size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.cyan
+                    color: Colors.white,
+                    size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25, ),
+      iconBackground: datas.tglPengajuanProposal!="Undecided"? Colors.green:Colors.red
       ),
 
       TimelineModelData(
       name: "Upload Proposal",
-      time: datas.tglUploadProposal,  
-       status: datas.verifikasiKelayakanKroposal,    
-      icon: const Icon(LineIcons.book, color: Colors.white),
-      backicon: datas.tglPengajuanProposal!="Undecided"? 
+      time: datas.tglPengajuanProposal != "Undecided" ? datas.tglPengajuanProposal : "",
+      status: datas.verifikasiKelayakanKroposal,    
+      icon: datas.tglPengajuanProposal!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                    size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.cyan
+                    color: Colors.white,
+                    size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25, ),
+      iconBackground: datas.verifikasiKelayakanKroposal!="Undecided"? Colors.green:Colors.red
       ),
  
  
   TimelineModelData(
       name: "Ujian Proposal",
-      time: datas.tglVerifikasiUjianProposal,
+      time: datas.tglVerifikasiUjianProposal != "Undecided" ? datas.tglVerifikasiUjianProposal : "",
       status: datas.statusUjianProposal,
-     icon: const Icon(
-        LineIcons.userSecret,
-        color: Colors.white,
-      ),
-      backicon: datas.tglVerifikasiUjianProposal!="Undecided"? 
+     icon: datas.tglVerifikasiUjianProposal!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                    size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.green
+                    color: Colors.white,
+                    size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25, ),
+      iconBackground: datas.tglVerifikasiUjianProposal!="Undecided"? Colors.green:Colors.red
       ),
  
   TimelineModelData(
       name: "Revisi Proposal",
-      time: datas.tglVerifikasiRevisiProposal,
+      time: datas.tglVerifikasiRevisiProposal != "Undecided" ? datas.tglVerifikasiRevisiProposal : "",
       status: datas.verifikasiRevisiProposal,
-     icon: const Icon(
-        LineIcons.edit,
-        color: Colors.white,
-      ),
-      backicon: datas.tglVerifikasiRevisiProposal!="Undecided"? 
+      icon: datas.tglVerifikasiRevisiProposal!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                    size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.orange
+                    color: Colors.white,
+                    size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25,
+      ),
+      iconBackground: datas.tglVerifikasiRevisiProposal!="Undecided"? Colors.green:Colors.red
       ),
 
     TimelineModelData(
       name: "Upload Pratesis",
-      time: datas.tglUploadPratesis,
+      time: datas.tglUploadPratesis != "Undecided" ? datas.tglUploadPratesis : "",
       status: datas.verifikasiPratesisKelayakan,
-     icon: const Icon(
-        LineIcons.book,
-        color: Colors.white,
-      ),
-      backicon: datas.tglUploadPratesis!="Undecided"? 
+     icon: datas.tglUploadPratesis!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                    size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.cyan
+                    color: Colors.white,
+                    size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25,
+      ),
+      iconBackground: datas.verifikasiPratesisKelayakan!="Undecided"? Colors.green:Colors.red
       ),
 
      TimelineModelData(
       name: "Ujian Pratesis",
-      time: datas.tglStatusPratesisUjian,
+      time: datas.tglStatusPratesisUjian != "Undecided" ? datas.tglStatusPratesisUjian : "",
       status: datas.statusPratesisUjian,
-      icon: const Icon(
-          LineIcons.userSecret,
-          color: Colors.white,
-        ),
-      backicon: datas.tglStatusPratesisUjian!="Undecided"? 
+      icon: datas.tglStatusPratesisUjian!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                    size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.green
+                    color: Colors.white,
+                    size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25,
+        ),
+      iconBackground: datas.tglStatusPratesisUjian!="Undecided"? Colors.green:Colors.red
       ),
 
       TimelineModelData(
       name: "Revisi Pratesis",
-      time: datas.tglStatusPratesisPevisi,
+      time: datas.tglStatusPratesisPevisi != "Undecided" ? datas.tglStatusPratesisPevisi : "",
       status: datas.statusPratesisPevisi,
-      icon: const Icon(
-          LineIcons.edit,
-          color: Colors.white,
-        ),
-      backicon: datas.tglStatusPratesisPevisi!="Undecided"? 
+      icon:  datas.tglStatusPratesisPevisi!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                    size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.orange
+                    color: Colors.white,
+                    size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25,
+        ),
+      iconBackground: datas.tglStatusPratesisPevisi!="Undecided"? Colors.green:Colors.red
       ),
 
       TimelineModelData(
       name: "Upload Tesis",
-      time: datas.tglTesisUpload,
+      time: datas.tglTesisUpload != "Undecided" ? datas.tglTesisUpload : "",
       status: datas.verifikasiTesisKelayakan,
-      icon: const Icon(
-          LineIcons.book,
-          color: Colors.white,
-        ),
-      backicon: datas.tglTesisUpload!="Undecided"? 
+      icon: datas.tglTesisUpload!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                    size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.cyan
+                    color: Colors.white,
+                    size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25, ),
+      iconBackground: datas.tglTesisUpload!="Undecided"? Colors.green:Colors.red
       ),
 
       TimelineModelData(
       name: "Ujian Tesis ",
-      time: datas.tglTesisUjian,
+      time: datas.tglTesisUjian != "Undecided" ? datas.tglTesisUjian : "",
       status: datas.statusTesisUjian,
-      icon: const Icon(
-          LineIcons.userSecret,
-          color: Colors.white,
-        ),
-      backicon: datas.tglTesisUjian!="Undecided"? 
+      icon: datas.tglTesisUjian!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                   size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.green
+                    color: Colors.white,
+                   size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25, ),
+      iconBackground: datas.tglTesisUjian!="Undecided"? Colors.green:Colors.red
       ),
 
       TimelineModelData(
       name: "Revisi Tesis ",
-      time: datas.tglTesisUjian,
+      time: datas.tglTesisUjian != "Undecided" ? datas.tglTesisUjian : "",
       status: datas.verifikasiTesisRevisi,
-      icon: const Icon(
-          LineIcons.edit,
-          color: Colors.white,
-        ),
-      backicon: datas.tglTesisUjian!="Undecided"? 
+      icon: datas.tglTesisUjian!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                    size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.orange
+                    color: Colors.white,
+                    size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25, ),
+      iconBackground: datas.tglTesisUjian!="Undecided"? Colors.green:Colors.red
       ),
 
       TimelineModelData(
       name: "Wisuda ",
-      time: datas.tglTesisUjian,
-      status: "Lulus",
-      icon: const Icon(
-          LineIcons.graduationCap,
-          color: Colors.white,
-        ),
-      backicon: datas.tglTesisUjian!="Undecided"? 
+      time: datas.tglTesisUjian != "Undecided" ? datas.tglTesisUjian : "",
+      icon: datas.tglTesisUjian!="Undecided"? 
                     const Icon(Icons.check,
-                    color: Colors.green,
-                    size: 40, ):const Icon(LineIcons.times,
-                    color: Colors.red,
-                    size: 40, ),
-      iconBackground: Colors.blue
+                    color: Colors.white,
+                    size: 25, ):const Icon(LineIcons.times,
+                    color: Colors.white,
+                    size: 25, ),
+      iconBackground: datas.tglTesisUjian!="Undecided"? Colors.green:Colors.red
       ),
   
 ];
