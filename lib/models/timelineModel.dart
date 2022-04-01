@@ -230,7 +230,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       time: datas.tglUploadProposal,  
        status: datas.verifikasiKelayakanKroposal,    
       icon: const Icon(LineIcons.book, color: Colors.white),
-      backicon: datas.tglPengajuanProposal!="Belum Ditentukan"? 
+      backicon: datas.tglPengajuanProposal!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                     size: 40, ):const Icon(LineIcons.times,
@@ -248,7 +248,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
         LineIcons.userSecret,
         color: Colors.white,
       ),
-      backicon: datas.tglVerifikasiUjianProposal!="Belum Ditentukan"? 
+      backicon: datas.tglVerifikasiUjianProposal!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                     size: 40, ):const Icon(LineIcons.times,
@@ -265,7 +265,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
         LineIcons.edit,
         color: Colors.white,
       ),
-      backicon: datas.tglVerifikasiRevisiProposal!="Belum Ditentukan"? 
+      backicon: datas.tglVerifikasiRevisiProposal!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                     size: 40, ):const Icon(LineIcons.times,
@@ -282,7 +282,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
         LineIcons.book,
         color: Colors.white,
       ),
-      backicon: datas.tglUploadPratesis!="Belum Ditentukan"? 
+      backicon: datas.tglUploadPratesis!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                     size: 40, ):const Icon(LineIcons.times,
@@ -299,7 +299,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
           LineIcons.userSecret,
           color: Colors.white,
         ),
-      backicon: datas.tglStatusPratesisUjian!="Belum Ditentukan"? 
+      backicon: datas.tglStatusPratesisUjian!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                     size: 40, ):const Icon(LineIcons.times,
@@ -316,7 +316,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
           LineIcons.edit,
           color: Colors.white,
         ),
-      backicon: datas.tglStatusPratesisPevisi!="Belum Ditentukan"? 
+      backicon: datas.tglStatusPratesisPevisi!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                     size: 40, ):const Icon(LineIcons.times,
@@ -333,7 +333,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
           LineIcons.book,
           color: Colors.white,
         ),
-      backicon: datas.tglTesisUpload!="Belum Ditentukan"? 
+      backicon: datas.tglTesisUpload!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                     size: 40, ):const Icon(LineIcons.times,
@@ -350,7 +350,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
           LineIcons.userSecret,
           color: Colors.white,
         ),
-      backicon: datas.tglTesisUjian!="Belum Ditentukan"? 
+      backicon: datas.tglTesisUjian!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                    size: 40, ):const Icon(LineIcons.times,
@@ -367,7 +367,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
           LineIcons.edit,
           color: Colors.white,
         ),
-      backicon: datas.tglTesisUjian!="Belum Ditentukan"? 
+      backicon: datas.tglTesisUjian!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                     size: 40, ):const Icon(LineIcons.times,
@@ -384,7 +384,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
           LineIcons.graduationCap,
           color: Colors.white,
         ),
-      backicon: datas.tglTesisUjian!="Belum Ditentukan"? 
+      backicon: datas.tglTesisUjian!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                     size: 40, ):const Icon(LineIcons.times,
