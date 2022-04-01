@@ -89,7 +89,7 @@ void initState() {
     final textTheme = Theme.of(context).textTheme;
     return TimelineModel(
         Card(
-          margin: EdgeInsets.only(top: 16.0, bottom: 16, left: 7, right: 7),
+          margin: const EdgeInsets.only(top: 16.0, bottom: 16, left: 7, right: 7),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
           clipBehavior: Clip.antiAlias,
@@ -103,10 +103,9 @@ void initState() {
                     doodle.backicon! ,
                   ],
                 ),
-
                 const SizedBox(
-                  height: 8.0,
-                  width: 20,
+                  height: 2.0,
+                  width: 15,
                 ),
                 Text(doodle.time!, style: textTheme.caption),
                 const SizedBox(

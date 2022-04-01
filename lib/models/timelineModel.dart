@@ -216,7 +216,7 @@ List<TimelineModelData> timelineFromJson(String jsonData) {
       time: datas.tglPengajuanProposal,
       status: datas.statusPengajuanProposal,
       icon: const Icon(LineIcons.book, color: Colors.white),
-      backicon: datas.tglPengajuanProposal!="Belum Ditentukan"? 
+      backicon: datas.tglPengajuanProposal!="Undecided"? 
                     const Icon(Icons.check,
                     color: Colors.green,
                     size: 40, ):const Icon(LineIcons.times,

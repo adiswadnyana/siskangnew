@@ -34,7 +34,7 @@ class _Profile2 extends State<Profile2>{
    
   List<Profile>? listProfile = [];
   List<MasaStudi>? listMasaStudi = [];
-  ApiService apiService = new ApiService();
+  ApiService apiService = ApiService();
 
   void initState(){
     super.initState();
@@ -139,16 +139,10 @@ class _Profile2 extends State<Profile2>{
       ),
     ),
       );
-
- 
-
-   
-
-   
-   
+      
     final secondCard = Padding(
       padding: const EdgeInsets.only(right: 20.0, left: 20.0, bottom: 10.0, top: 50),
-      child: new SingleChildScrollView(
+      child: SingleChildScrollView(
     child: Material(
         elevation: 5.0,
         borderRadius: BorderRadius.circular(8.0),
@@ -171,8 +165,8 @@ hr,
             _jabatan=='0'? Card(
                child: InkWell(
                 child: const ListTile(
-                  leading: const Icon(LineIcons.lineChart, color: Colors.blue,),
-                  title: Text('Timeline', style: const TextStyle(color: Colors.blue),),
+                  leading: Icon(LineIcons.lineChart, color: Colors.blue,),
+                  title: Text('Timeline', style: TextStyle(color: Colors.blue),),
                   trailing: Icon(Icons.arrow_right, color: Colors.blue,),
                    
                 ),
@@ -186,9 +180,9 @@ hr,
               ):Card(
                child: InkWell(
                 child: const ListTile(
-                  leading: const Icon(LineIcons.users, color: Colors.blue,),
-                  title: Text('Masa Studi', style: const TextStyle(color: Colors.blue),),
-                  trailing: const Icon(Icons.arrow_right, color: Colors.blue,),
+                  leading: Icon(LineIcons.users, color: Colors.blue,),
+                  title: Text('Masa Studi', style: TextStyle(color: Colors.blue),),
+                  trailing: Icon(Icons.arrow_right, color: Colors.blue,),
                    
                 ),
                 onTap: () {
@@ -202,9 +196,9 @@ hr,
              Card(
                child: InkWell(
                 child: const ListTile(
-                  leading: const Icon(LineIcons.barChart, color: Colors.blue,),
-                  title: const Text('Dashboard', style: TextStyle(color: Colors.blue),),
-                  trailing: const Icon(Icons.arrow_right, color: Colors.blue,),
+                  leading: Icon(LineIcons.barChart, color: Colors.blue,),
+                  title: Text('Dashboard', style: TextStyle(color: Colors.blue),),
+                  trailing: Icon(Icons.arrow_right, color: Colors.blue,),
                    
                 ),
                 onTap: () {
@@ -217,8 +211,8 @@ hr,
              Card(
                child: InkWell(
                 child: const ListTile(
-                  leading: const Icon(LineIcons.cogs, color: Colors.blue,),
-                  title: Text('Pengaturan Akun', style: const TextStyle(color: Colors.blue),),
+                  leading: Icon(LineIcons.cogs, color: Colors.blue,),
+                  title: Text('Pengaturan Akun', style: TextStyle(color: Colors.blue),),
                   trailing: Icon(Icons.arrow_right, color: Colors.blue,),
                    
                 ),
@@ -232,9 +226,9 @@ hr,
               _isAdmin=='1'? Card(
                child: InkWell(
                 child: const ListTile(
-                  leading: const Icon(LineIcons.circleAlt ,color: Colors.green,),
+                  leading: Icon(LineIcons.circleAlt ,color: Colors.green,),
                   title: Text('Ganti Akun', style: TextStyle(color: Colors.green),),
-                    trailing: const Icon(Icons.arrow_right, color: Colors.green,),
+                    trailing: Icon(Icons.arrow_right, color: Colors.green,),
                 ),
                 onTap: () {
                   setState(() {
@@ -247,8 +241,8 @@ hr,
                Card(
                child: InkWell(
                 child: const ListTile(
-                  leading: const Icon(LineIcons.lock, color: Colors.red,),
-                  title: Text('Log Out', style: const TextStyle(color: Colors.red),),
+                  leading: Icon(LineIcons.lock, color: Colors.red,),
+                  title: Text('Log Out', style: TextStyle(color: Colors.red),),
                 ),
                 onTap: () {
                   setState(() {
@@ -284,8 +278,8 @@ hr,
                           height: 200.0,
                           decoration: const BoxDecoration(
                             gradient: primaryGradient,
-                            image: const DecorationImage(
-                              image: const AssetImage('assets/images/LogoUndiksha.png'),
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/LogoUndiksha.png'),
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -402,7 +396,7 @@ return Padding(
       children: <Widget>[ 
         const Text(
           'Akhir Studi' ,
-          style:const TextStyle(
+          style:TextStyle(
       color: Colors.black54,
       fontSize: 14.0,
       fontWeight: FontWeight.bold
