@@ -112,8 +112,8 @@ class _JadwalScreenState extends State<JadwalScreen> {
                     padding: const EdgeInsets.only(top: 50.0),
                     height: 270.0,
                     width: 280.0,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
+                    decoration: const BoxDecoration(
+                      image: const DecorationImage(
                         image: AvailableImages.errorimg,
                         fit: BoxFit.cover,
                       ),
@@ -152,7 +152,7 @@ class _JadwalScreenState extends State<JadwalScreen> {
                             padding: const EdgeInsets.only(top: 50.0),
                             height: 270.0,
                             width: 280.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               image: DecorationImage(
                                 image: AvailableImages.nodata,
                                 fit: BoxFit.cover,
@@ -215,7 +215,7 @@ class _JadwalScreenState extends State<JadwalScreen> {
                             elevation: 5.0,
                             borderRadius: BorderRadius.circular(14.0),
                             child: Container(
-                              padding: EdgeInsets.only(top: 40.0),
+                              padding: const EdgeInsets.only(top: 40.0),
                               // height: 150.0,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
@@ -277,7 +277,7 @@ class _JadwalScreenState extends State<JadwalScreen> {
               padding: const EdgeInsets.all(5.0),
               child: Text(
                 jadwal.nama!,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
               )),
         ],
       ),
@@ -293,7 +293,7 @@ class _JadwalScreenState extends State<JadwalScreen> {
                       child: Text(
                     jadwal.judul!,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 13,
                     ),
@@ -415,13 +415,13 @@ class _JadwalScreenState extends State<JadwalScreen> {
         right: 20.0,
         top: 12.0,
         child: Stack(children: [
-          Padding(
-            padding: const EdgeInsets.all(0.0),
+          const Padding(
+            padding: EdgeInsets.all(0.0),
           ),
           Center(
             child: Text(
               jadwal.jenisUjian!,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
               textAlign: TextAlign.center,
@@ -433,7 +433,7 @@ class _JadwalScreenState extends State<JadwalScreen> {
   PreferredSizeWidget _appBar() {
     if (activeSearch) {
       return AppBar(
-        leading: Icon(Icons.search),
+        leading: const Icon(Icons.search),
         title: TextFormField(
           controller: _textcari,
           decoration: InputDecoration(
@@ -442,26 +442,26 @@ class _JadwalScreenState extends State<JadwalScreen> {
             contentPadding:
                 const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: const BorderSide(color: Colors.white),
               borderRadius: BorderRadius.circular(20.7),
             ),
             enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: const BorderSide(color: Colors.white),
               borderRadius: BorderRadius.circular(20.7),
             ),
           ),
         ),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.close), onPressed: () => reset())
+          IconButton(icon: const Icon(Icons.close), onPressed: () => reset())
         ],
       );
     } else {
       return AppBar(
-        title: Text("Jadwal"),
+        title: const Text("Jadwal"),
         automaticallyImplyLeading: false,
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
             onPressed: () => setState(() => activeSearch = true),
           ),
         ],
