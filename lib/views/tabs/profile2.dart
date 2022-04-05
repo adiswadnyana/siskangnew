@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:async';
 
 import 'package:SisKa/models/api/api_service.dart';
@@ -362,7 +364,7 @@ Widget _buildMasaStudi(String studiAwal, String studiAkhir, String sisaStudi) {
       borderRadius: BorderRadius.circular(5.0),
       child: Container(
         height: 60.0,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.transparent,
         ),
         child: Row(
@@ -371,7 +373,7 @@ Widget _buildMasaStudi(String studiAwal, String studiAkhir, String sisaStudi) {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text(
+                Text(
                   'Awal Studi',
                   style: TextStyle(
                       color: Colors.black54,
@@ -389,7 +391,7 @@ Widget _buildMasaStudi(String studiAwal, String studiAkhir, String sisaStudi) {
                           child: Text(
                             studiAwal,
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -419,7 +421,7 @@ Widget _buildMasaStudi(String studiAwal, String studiAkhir, String sisaStudi) {
                           child: Text(
                             sisaStudi + ' ' + 'Bulan',
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -449,7 +451,7 @@ Widget _buildMasaStudi(String studiAwal, String studiAkhir, String sisaStudi) {
                           child: Text(
                             studiAkhir,
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -473,7 +475,7 @@ Widget _buildStatusPenelitian(String status) {
       borderRadius: BorderRadius.circular(5.0),
       child: Container(
         height: 60.0,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.transparent,
         ),
         child: Row(
@@ -500,7 +502,7 @@ Widget _buildStatusPenelitian(String status) {
                           child: Text(
                             status,
                             style: const TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                             textAlign: TextAlign.center,
                           ),

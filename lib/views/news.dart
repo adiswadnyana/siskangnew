@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, unnecessary_new, annotate_overrides
+
 import 'dart:async';
 
 import 'package:SisKa/models/api/api_service.dart';

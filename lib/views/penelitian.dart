@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, unnecessary_new, prefer_is_empty
+
 import 'package:SisKa/models/api/api_service.dart';
 import 'package:SisKa/models/penelitian.dart';
 import 'package:flutter/material.dart';

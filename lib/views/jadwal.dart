@@ -1,3 +1,7 @@
+// ignore_for_file: unnecessary_const, unnecessary_new, prefer_const_constructors, dead_code, annotate_overrides
+
+import 'dart:async';
+
 import 'package:SisKa/models/api/api_service.dart';
 import 'package:SisKa/models/jadwal.dart';
 import 'package:flutter/material.dart';
@@ -22,21 +26,23 @@ class _JadwalScreenState extends State<JadwalScreen> {
   AssetImage? logoKet;
   String ket = '';
   bool activeSearch = false;
+  bool loading = true;
+  Timer? _debounce;
 
   void initState() {
     super.initState();
-    ctx = context;
     BackButtonInterceptor.add(myInterceptor);
     activeSearch = false;
     loadData();
     _textcari.addListener(() {
-      filterData(_textcari.text);
+      filterData();
     });
   }
 
   @override
   void dispose() {
     BackButtonInterceptor.remove(myInterceptor);
+    _debounce?.cancel();
     super.dispose();
   }
 
@@ -44,21 +50,29 @@ class _JadwalScreenState extends State<JadwalScreen> {
     return true;
   }
 
-  void filterData(String key) async {
-    List<Jadwal> listDataTemp = <Jadwal>[];
-    if (key.length >= 2) {
+  void filterData() async {
+    if (_debounce?.isActive ?? false) _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), () {
+      final key = _textcari.text;
+      print('key = $key');
+      print('listData = ${listData.length}');
+      List<Jadwal> listDataTemp = <Jadwal>[];
+      print(listData);
       listData.forEach((item) {
-        if (item.nama!.toLowerCase().contains(key.toLowerCase()) ||
+        if (item.judul!.toLowerCase().contains(key.toLowerCase()) ||
             item.tgl!.toLowerCase().contains(key.toLowerCase())) {
           listDataTemp.add(item);
         }
       });
-    }
-    setState(() {
-      if (listDataTemp.length > 0) {
-        listDataUse.clear();
-        listDataUse = listDataTemp;
-      }
+      setState(() {
+        if (key.isEmpty || key == '') {
+          listDataUse.clear();
+          listDataUse.addAll(listData);
+        } else {
+          listDataUse.clear();
+          listDataUse.addAll(listDataTemp);
+        }
+      });
     });
   }
 
@@ -68,6 +82,8 @@ class _JadwalScreenState extends State<JadwalScreen> {
       setState(() {
         activeSearch = false;
         listData = listDataget!;
+        listDataUse.addAll(listData);
+        loading = false;
       });
     }
   }
@@ -75,13 +91,17 @@ class _JadwalScreenState extends State<JadwalScreen> {
   void reset() async {
     setState(() {
       activeSearch = false;
+      listDataUse.clear();
+      listDataUse.addAll(listData);
       _textcari.clear();
     });
   }
 
-  Future<Null> _refresh() async {
+  Future _refresh() async {
     setState(() {
       activeSearch = false;
+      listDataUse.clear();
+      listDataUse.addAll(listData);
     });
 
     return null;
@@ -101,92 +121,36 @@ class _JadwalScreenState extends State<JadwalScreen> {
 
   Widget _getkonten(BuildContext context) {
     return SafeArea(
-      child: FutureBuilder(
-        future: apiService.getJadwal(),
-        builder: (BuildContext context, AsyncSnapshot<List<Jadwal>?> snapshot) {
-          if (snapshot.hasError) {
-            return Center(
-              child: Stack(
-                children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.only(top: 50.0),
-                    height: 270.0,
-                    width: 280.0,
-                    decoration: const BoxDecoration(
-                      image: const DecorationImage(
-                        image: AvailableImages.errorimg,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  new Container(
-                    padding: const EdgeInsets.only(top: 270.0),
-                    height: 290.0,
-                    width: 250.0,
-                    child: new Text(
-                      'Terjadi Kesalahan, coba lagi nanti..',
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          } else if (snapshot.connectionState == ConnectionState.done) {
-            if (activeSearch) {
-              // listDataUse = listDataTemp;
-              logoKet = AvailableImages.notfoundimg;
-              ket = "Data Tidak Ditemukan..";
-            } else {
-              listDataUse = snapshot.data!;
-              logoKet = AvailableImages.nodata;
-              ket = "Tidak Ada Data..";
-            }
-            if (listDataUse.length == 0) {
-              return Center(
-                child: Stack(
-                  children: <Widget>[
-                    Center(
-                      child: Stack(
-                        children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.only(top: 50.0),
-                            height: 270.0,
-                            width: 280.0,
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AvailableImages.nodata,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+      child: loading
+          ? LinearProgressIndicator()
+          : listDataUse.isEmpty
+              ? Center(
+                  child: Stack(
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.only(top: 50.0),
+                        height: 270.0,
+                        width: 280.0,
+                        decoration: const BoxDecoration(
+                          image: const DecorationImage(
+                            image: AvailableImages.errorimg,
+                            fit: BoxFit.cover,
                           ),
-                          new Container(
-                            padding: const EdgeInsets.only(top: 270.0),
-                            height: 290.0,
-                            width: 250.0,
-                            child: new Text(
-                              'Tidak Ada Data..',
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              );
-            } else {
-              return _buildListView(listDataUse, context);
-            }
-          } else {
-            return Center(
-              child: CircularProgressIndicator(
-                valueColor:
-                    new AlwaysStoppedAnimation<Color>(Colors.blueAccent),
-              ),
-            );
-          }
-        },
-      ),
+                      new Container(
+                        padding: const EdgeInsets.only(top: 270.0),
+                        height: 290.0,
+                        width: 250.0,
+                        child: new Text(
+                          'Terjadi Kesalahan, coba lagi nanti..',
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              : _buildListView(listDataUse, context),
     );
   }
 
