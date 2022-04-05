@@ -58,6 +58,7 @@ dependencies:
       ref: master # branch name
   timeline_list: ^0.0.6
   url_launcher: ^6.0.20
+  fl_chart: ^0.50.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

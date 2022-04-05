@@ -187,7 +187,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   Widget _getkontenTopik(BuildContext context) {
     return Container(
-      height: 550.0,
+      height: 1700.0,
       width: MediaQuery.of(context).size.width,
       child: Stack(
         children: <Widget>[
