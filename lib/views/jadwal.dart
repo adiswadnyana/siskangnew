@@ -20,7 +20,7 @@ class _JadwalScreenState extends State<JadwalScreen> {
   List<Jadwal> listData = <Jadwal>[];
   List<Jadwal> listDataUse = <Jadwal>[];
   AssetImage? logoKet;
-  String ket='';
+  String ket = '';
   bool activeSearch = false;
 
   void initState() {
@@ -277,7 +277,8 @@ class _JadwalScreenState extends State<JadwalScreen> {
               padding: const EdgeInsets.all(5.0),
               child: Text(
                 jadwal.nama!,
-                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
               )),
         ],
       ),

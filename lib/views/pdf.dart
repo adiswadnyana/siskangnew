@@ -3,6 +3,7 @@ import 'package:SisKa/models/penelitian.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 void main() => runApp(MyApp());
+
 class MyApp extends StatefulWidget {
   final String? url;
   const MyApp({Key? key, this.url}) : super(key: key);
@@ -12,15 +13,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool _isLoading = true;
   List<Penelitian> listData = <Penelitian>[];
-  String _url ='';
+  String _url = '';
 
   @override
   void initState() {
     super.initState();
     _url = widget.url!;
   }
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +28,7 @@ class _MyAppState extends State<MyApp> {
           title: Text('Lihat Dokumen'),
         ),
         body: Container(
-          child: SfPdfViewer.network(
-              _url, 
-             pageLayoutMode: PdfPageLayoutMode.single)));
-
+            child: SfPdfViewer.network(_url,
+                pageLayoutMode: PdfPageLayoutMode.single)));
   }
 }

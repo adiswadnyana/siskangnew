@@ -37,13 +37,15 @@ class UserDetailsPage extends StatelessWidget {
     final userImage = Stack(
       children: <Widget>[
         Hero(
-          tag: NetworkImage("http://194.31.53.130/siska_api/assets/img/profile.jpg"),
+          tag: NetworkImage(
+              "http://194.31.53.130/siska_api/assets/img/profile.jpg"),
           child: Container(
             height: 350.0,
             width: deviceWidth,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage("http://194.31.53.130/siska_api/assets/img/profile.jpg"),
+                image: NetworkImage(
+                    "http://194.31.53.130/siska_api/assets/img/profile.jpg"),
                 fit: BoxFit.cover,
               ),
             ),

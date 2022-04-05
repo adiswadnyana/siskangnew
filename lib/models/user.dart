@@ -1,7 +1,6 @@
 import 'package:SisKa/utils/utils.dart';
 import 'package:SisKa/models/api/api_service.dart';
 
-
 class User {
   int? id;
   String? name;
@@ -11,11 +10,8 @@ class User {
   int? age;
   User(this.id, this.name, this.photo, this.gender, this.age);
   ApiService? apiService;
- 
- 
 }
 
- 
 // Names generated at http://random-name-generator.info/
 final List<User> users = [
   User(1, 'Maria Perez', AvailableImages.man1['assetPath'], 'M', 27),
@@ -30,12 +26,10 @@ final List<User> users = [
   User(10, 'Brenda Watkins', AvailableImages.woman5['assetPath'], 'F', 26),
 ];
 
-
-
 final List<String> userHobbies = [
-  "Dancing", "Hiking", "Singing", "Reading", "Fishing"
-]; 
-
-
-
-
+  "Dancing",
+  "Hiking",
+  "Singing",
+  "Reading",
+  "Fishing"
+];

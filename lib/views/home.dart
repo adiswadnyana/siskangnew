@@ -12,7 +12,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:SisKa/models/api/api_service.dart';
 
 class HomePage extends StatefulWidget {
-   final int? index;
+  final int? index;
   const HomePage({Key? key, this.index}) : super(key: key);
   @override
   _HomePageState createState() => _HomePageState();
@@ -21,9 +21,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   ApiService apiService = new ApiService();
-  String _jumlahUnread='0';
+  String _jumlahUnread = '0';
   List<NorifUnread> listData = <NorifUnread>[];
-   
+
   final List<Widget> _pages = [
     TimelinePage(nim: "Mhs"),
     NewsScreen(),
@@ -33,22 +33,21 @@ class _HomePageState extends State<HomePage> {
     Profile2()
   ];
 
-   void initState() {
+  void initState() {
     super.initState();
-   loadData() ;
-   _currentIndex = widget.index!;
+    loadData();
+    _currentIndex = widget.index!;
   }
 
-  void loadData() async{
-  final listData = await apiService.getNotifUnread();
+  void loadData() async {
+    final listData = await apiService.getNotifUnread();
 
- if (this.mounted) {
+    if (this.mounted) {
       setState(() {
-         _jumlahUnread = listData![0].jumlah!;
+        _jumlahUnread = listData![0].jumlah!;
       });
+    }
   }
-  }
- 
 
   void onTabTapped(int index) {
     setState(() {
@@ -59,7 +58,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     final bottomNavBar = BottomNavigationBar(
       onTap: onTabTapped,
       currentIndex: _currentIndex,
@@ -71,53 +69,49 @@ class _HomePageState extends State<HomePage> {
           icon: Icon(Icons.timeline),
           label: 'Timeline',
         ),
-        
         BottomNavigationBarItem(
           icon: Icon(Icons.rss_feed),
-          label:'Berita',
+          label: 'Berita',
         ),
         BottomNavigationBarItem(
           icon: Icon(LineIcons.calendar),
-          label:'Jadwal',
+          label: 'Jadwal',
         ),
         BottomNavigationBarItem(
           icon: Icon(LineIcons.book),
-          label:'Penelitian',
+          label: 'Penelitian',
         ),
-
-        _jumlahUnread!='0'?
-        BottomNavigationBarItem(
-          icon:  Badge(
-            shape: BadgeShape.circle,
-            borderRadius: BorderRadius.circular(100),
-            child: Icon(Icons.notifications),
-            badgeContent: Container(
-              height: 13,
-              width: 13,
-              decoration:
-                  BoxDecoration(
-                    shape: BoxShape.circle, color: Colors.red
+        _jumlahUnread != '0'
+            ? BottomNavigationBarItem(
+                icon: Badge(
+                  shape: BadgeShape.circle,
+                  borderRadius: BorderRadius.circular(100),
+                  child: Icon(Icons.notifications),
+                  badgeContent: Container(
+                    height: 13,
+                    width: 13,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.red),
+                    child: new Text(
+                      _jumlahUnread,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                child: new Text(_jumlahUnread , textAlign: TextAlign.center,
-                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                ),     
-            ),
-          ),
-          label:'Notifikasi',
-        ):  BottomNavigationBarItem(
-          icon: Icon(Icons.notifications),
-          label:'Notifikasi',
-        ),
-
-
-
+                  ),
+                ),
+                label: 'Notifikasi',
+              )
+            : BottomNavigationBarItem(
+                icon: Icon(Icons.notifications),
+                label: 'Notifikasi',
+              ),
         BottomNavigationBarItem(
           icon: Icon(LineIcons.user),
-          label:'Profile',
+          label: 'Profile',
         )
       ],
     );

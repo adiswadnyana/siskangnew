@@ -13,7 +13,7 @@ import 'package:SisKa/models/registrasiNew.dart';
 import 'package:badges/badges.dart';
 
 class HomeAdminPage extends StatefulWidget {
-    final int? index;
+  final int? index;
   const HomeAdminPage({Key? key, this.index}) : super(key: key);
   @override
   _HomeAdminPageState createState() => _HomeAdminPageState();
@@ -21,12 +21,12 @@ class HomeAdminPage extends StatefulWidget {
 
 class _HomeAdminPageState extends State<HomeAdminPage> {
   int _currentIndex = 0;
-    String _jumlahUnread='0';
-    String _jumlahUnreadReg='0';
+  String _jumlahUnread = '0';
+  String _jumlahUnreadReg = '0';
   List<NorifUnread> listData = <NorifUnread>[];
-    List<RegistrasiNew> listDataReg = <RegistrasiNew>[];
+  List<RegistrasiNew> listDataReg = <RegistrasiNew>[];
   ApiService apiService = new ApiService();
-   
+
   final List<Widget> _pages = [
     NewsScreen(),
     JadwalScreen(),
@@ -36,24 +36,23 @@ class _HomeAdminPageState extends State<HomeAdminPage> {
     Profile2()
   ];
 
-   void initState() {
+  void initState() {
     super.initState();
-   loadData() ;
-   _currentIndex = widget.index!;
+    loadData();
+    _currentIndex = widget.index!;
   }
 
-  void loadData() async{
-  final listData = await apiService.getNotifUnread();
-  final listDataReg = await apiService.getRegistrasiNew();
+  void loadData() async {
+    final listData = await apiService.getNotifUnread();
+    final listDataReg = await apiService.getRegistrasiNew();
 
- if (this.mounted) {
+    if (this.mounted) {
       setState(() {
-         _jumlahUnread = listData![0].jumlah!;
-          _jumlahUnreadReg = listDataReg![0].jumlah!;
+        _jumlahUnread = listData![0].jumlah!;
+        _jumlahUnreadReg = listDataReg![0].jumlah!;
       });
+    }
   }
-  }
-
 
   void onTabTapped(int index) {
     setState(() {
@@ -63,7 +62,6 @@ class _HomeAdminPageState extends State<HomeAdminPage> {
 
   @override
   Widget build(BuildContext context) {
-
     final bottomNavBar = BottomNavigationBar(
       onTap: onTabTapped,
       currentIndex: _currentIndex,
@@ -73,87 +71,73 @@ class _HomeAdminPageState extends State<HomeAdminPage> {
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.rss_feed),
-          label:
-            'Berita',
-            
+          label: 'Berita',
         ),
         BottomNavigationBarItem(
           icon: Icon(LineIcons.calendar),
-          label:
-            'Jadwal',
-            
+          label: 'Jadwal',
         ),
         BottomNavigationBarItem(
           icon: Icon(LineIcons.book),
-          label:
-            'Penelitian',
-            
+          label: 'Penelitian',
         ),
-         _jumlahUnread!='0'?
-        BottomNavigationBarItem(
-          icon:  Badge(
-            shape: BadgeShape.circle,
-            borderRadius: BorderRadius.circular(100),
-            child: Icon(Icons.notifications),
-            badgeContent: Container(
-              height: 13,
-              width: 13,
-              decoration:
-                  BoxDecoration(
-                    shape: BoxShape.circle, color: Colors.red
+        _jumlahUnread != '0'
+            ? BottomNavigationBarItem(
+                icon: Badge(
+                  shape: BadgeShape.circle,
+                  borderRadius: BorderRadius.circular(100),
+                  child: Icon(Icons.notifications),
+                  badgeContent: Container(
+                    height: 13,
+                    width: 13,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.red),
+                    child: new Text(
+                      _jumlahUnread,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                child: new Text(_jumlahUnread , textAlign: TextAlign.center,
-                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                ),     
-            ),
-          ),
-          label:
-            'Notifikasi',
-            
-        ):  BottomNavigationBarItem(
-          icon: Icon(Icons.notifications),
-          label:
-            'Notifikasi',
-            
-        ),
+                  ),
+                ),
+                label: 'Notifikasi',
+              )
+            : BottomNavigationBarItem(
+                icon: Icon(Icons.notifications),
+                label: 'Notifikasi',
+              ),
 
-
-        _jumlahUnreadReg!='0'?
-        BottomNavigationBarItem(
-          icon:  Badge(
-            shape: BadgeShape.circle,
-            borderRadius: BorderRadius.circular(100),
-            child: Icon(LineIcons.checkCircleAlt),
-            badgeContent: Container(
-              height: 13,
-              width: 13,
-              decoration:
-                  BoxDecoration(
-                    shape: BoxShape.circle, color: Colors.red
+        _jumlahUnreadReg != '0'
+            ? BottomNavigationBarItem(
+                icon: Badge(
+                  shape: BadgeShape.circle,
+                  borderRadius: BorderRadius.circular(100),
+                  child: Icon(LineIcons.checkCircleAlt),
+                  badgeContent: Container(
+                    height: 13,
+                    width: 13,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.red),
+                    child: new Text(
+                      _jumlahUnreadReg,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                child: new Text(_jumlahUnreadReg , textAlign: TextAlign.center,
-                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                ),     
-            ),
-          ),
-          label:
-            'Registrasi',
-            
-        ):  BottomNavigationBarItem(
-          icon: Icon(LineIcons.checkCircleAlt),
-          label:
-            'Registrasi',
-            
-        ),
-
+                  ),
+                ),
+                label: 'Registrasi',
+              )
+            : BottomNavigationBarItem(
+                icon: Icon(LineIcons.checkCircleAlt),
+                label: 'Registrasi',
+              ),
 
         //  BottomNavigationBarItem(
         //   icon: Icon(LineIcons.check_circle_o),
@@ -164,9 +148,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> {
         // ),
         BottomNavigationBarItem(
           icon: Icon(LineIcons.user),
-          label:
-            'Profile',
-            
+          label: 'Profile',
         )
       ],
     );

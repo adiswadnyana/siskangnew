@@ -11,16 +11,18 @@ class ResetPasswordPage extends StatefulWidget {
 
 class _ResetPasswordPageState extends State<ResetPasswordPage> {
   final _formKey = GlobalKey<FormState>();
-  
-void initState(){
+
+  void initState() {
     super.initState();
-     BackButtonInterceptor.add(myInterceptor);
+    BackButtonInterceptor.add(myInterceptor);
   }
+
   @override
   void dispose() {
     BackButtonInterceptor.remove(myInterceptor);
     super.dispose();
   }
+
   bool myInterceptor(bool stopDefaultButtonEvent, RouteInfo routeInfo) {
     return true;
   }

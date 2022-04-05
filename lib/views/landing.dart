@@ -6,7 +6,6 @@ import 'package:SisKa/utils/utils.dart';
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final logo = Container(
       height: 100.0,
       width: 100.0,
@@ -32,10 +31,7 @@ class LandingPage extends StatelessWidget {
         Text(
           AppConfig.appTagline,
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 15.0,
-            fontWeight: FontWeight.w500
-          ),
+              color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.w500),
           textAlign: TextAlign.center,
         )
       ],
@@ -64,7 +60,7 @@ class LandingPage extends StatelessWidget {
     //   ),
     // );
 
-      final loginBtn = Container(
+    final loginBtn = Container(
       height: 60.0,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
@@ -74,18 +70,17 @@ class LandingPage extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () => Navigator.pushNamed(context, loginViewRoute),
-        style: ElevatedButton.styleFrom(primary: Colors.white, shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(7.0))),
+        style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            shape: new RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(7.0))),
         child: const Text(
           'MASUK',
           style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 15.0,
-            color: Colors.black
-          ),
+              fontWeight: FontWeight.w600, fontSize: 15.0, color: Colors.black),
         ),
       ),
     );
-
 
     final registerBtn = Container(
       height: 60.0,
@@ -97,7 +92,10 @@ class LandingPage extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () => Navigator.pushNamed(context, registerViewRoute),
-        style: ElevatedButton.styleFrom(primary: Colors.white, shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(7.0))),
+        style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            shape: new RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(7.0))),
         child: const Text(
           'DAFTAR',
           style: TextStyle(
@@ -117,18 +115,20 @@ class LandingPage extends StatelessWidget {
         right: 30.0,
       ),
       child: Column(
-        children: <Widget>[loginBtn, 
-        const SizedBox(height: 20.0), 
-        registerBtn,
-        const SizedBox(height: 20.0),
-        const Text(
-          '',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-            fontSize: 10.0,
+        children: <Widget>[
+          loginBtn,
+          const SizedBox(height: 20.0),
+          registerBtn,
+          const SizedBox(height: 20.0),
+          const Text(
+            '',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+              fontSize: 10.0,
+            ),
           ),
-        ),],
+        ],
       ),
     );
 

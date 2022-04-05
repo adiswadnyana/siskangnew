@@ -96,7 +96,7 @@ class _MasastudiScreenState extends State<MasastudiScreen> {
     _firebaseMessaging.getToken().then((token) {
       apiService.updateToken(token!);
     });
-    
+
     // code lama untuk update token
     // _firebaseMessaging.configure(
     //   onmessage: (Map<String, dynamic> message) async {
@@ -109,12 +109,11 @@ class _MasastudiScreenState extends State<MasastudiScreen> {
     // );
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-       print("onMessage: $message");
+      print("onMessage: $message");
     });
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-       print("onResume: $message");
+      print("onResume: $message");
     });
-    
   }
 
   List list = ["Pengajuan", "Proposal", "Pra Tesis", "Tesis", "Wisuda"];
@@ -362,22 +361,21 @@ class _MasastudiScreenState extends State<MasastudiScreen> {
                                     fontWeight: FontWeight.bold),
                               ),
                               Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Stack(
-                                    children : [Padding(
-                                      padding: const EdgeInsets.all(0.0),
-                                    ),
-                                    Center(
-                                      child: Text(
-                                        jadwal.tglAwalStudi!,
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                    ]
+                                padding: const EdgeInsets.all(5.0),
+                                child: Stack(children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(0.0),
                                   ),
+                                  Center(
+                                    child: Text(
+                                      jadwal.tglAwalStudi!,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ]),
                               ),
                             ],
                           ),
@@ -394,18 +392,20 @@ class _MasastudiScreenState extends State<MasastudiScreen> {
                               Padding(
                                   padding: const EdgeInsets.all(5.0),
                                   child: Stack(
-                                    children: [Padding(
-                                      padding: const EdgeInsets.all(0.0),
-                                    ),
-                                    Center(
-                                      child: Text(
-                                        jadwal.sisaMasaStudi! + ' ' + 'Bulan',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                        ),
-                                        textAlign: TextAlign.center,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.all(0.0),
                                       ),
-                                    ),],
+                                      Center(
+                                        child: Text(
+                                          jadwal.sisaMasaStudi! + ' ' + 'Bulan',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ],
                                   )),
                             ],
                           ),
@@ -421,8 +421,8 @@ class _MasastudiScreenState extends State<MasastudiScreen> {
                               ),
                               Padding(
                                   padding: const EdgeInsets.all(5.0),
-                                  child: Stack(
-                                    children : [Padding(
+                                  child: Stack(children: [
+                                    Padding(
                                       padding: const EdgeInsets.all(0.0),
                                     ),
                                     Center(
@@ -434,8 +434,7 @@ class _MasastudiScreenState extends State<MasastudiScreen> {
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
-                                    ]
-                                  )),
+                                  ])),
                             ],
                           ),
                         ],
@@ -610,10 +609,11 @@ class _MasastudiScreenState extends State<MasastudiScreen> {
         left: 20.0,
         top: 12.0,
         child: Stack(
-          children: [ 
-            Padding(padding: const EdgeInsets.all(0.0),
-          ),
-          Center(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(0.0),
+            ),
+            Center(
               child: Text(
                 jadwal.status!,
                 style: TextStyle(
@@ -621,7 +621,7 @@ class _MasastudiScreenState extends State<MasastudiScreen> {
                 ),
                 textAlign: TextAlign.center,
               ),
-          ),
+            ),
           ],
         ));
   }

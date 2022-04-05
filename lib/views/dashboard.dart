@@ -315,7 +315,7 @@ List<Pengajuan> pengajuanFromJson(String jsonData) {
 }
 
 class HorizontalPatternForwardHatchBarChart extends StatelessWidget {
-final List<charts.Series<dynamic, String>> seriesList;
+  final List<charts.Series<dynamic, String>> seriesList;
   final bool? animate;
 
   HorizontalPatternForwardHatchBarChart(this.seriesList, {this.animate});
@@ -416,7 +416,7 @@ List<PenelitianDash> penelitianDashFromJson(String jsonData) {
 }
 
 class MhsDashboard extends StatelessWidget {
-final List<charts.Series<dynamic, String>> seriesList;
+  final List<charts.Series<dynamic, String>> seriesList;
   final bool? animate;
 
   MhsDashboard(this.seriesList, {this.animate});
@@ -501,7 +501,7 @@ List<MhsDash> mhsDashFromJson(String jsonData) {
 
 //chart topik penelitian
 class TopikPenelitian extends StatelessWidget {
-final List<charts.Series<dynamic, String>> seriesList;
+  final List<charts.Series<dynamic, String>> seriesList;
   final bool? animate;
 
   TopikPenelitian(this.seriesList, {this.animate});
@@ -582,7 +582,7 @@ List<Topik> topikFromJson(String jsonData) {
 
 //chart Pembimbing penelitian
 class Pembimbing extends StatelessWidget {
-final List<charts.Series<dynamic, String>> seriesList;
+  final List<charts.Series<dynamic, String>> seriesList;
   final bool? animate;
 
   Pembimbing(this.seriesList, {this.animate});

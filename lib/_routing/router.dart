@@ -27,11 +27,16 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case landingViewRoute:
       return MaterialPageRoute(builder: (context) => LandingPage());
     case homeViewRoute:
-      return MaterialPageRoute(builder: (context) => HomePage(index: settings.arguments as int));
+      return MaterialPageRoute(
+          builder: (context) => HomePage(index: settings.arguments as int));
     case homeAdminViewRoute:
-      return MaterialPageRoute(builder: (context) => HomeAdminPage(index: settings.arguments as int));
+      return MaterialPageRoute(
+          builder: (context) =>
+              HomeAdminPage(index: settings.arguments as int));
     case homeDosenViewRoute:
-      return MaterialPageRoute(builder: (context) => HomePageDosen(index: settings.arguments as int));
+      return MaterialPageRoute(
+          builder: (context) =>
+              HomePageDosen(index: settings.arguments as int));
     case splashViewRoute:
       return MaterialPageRoute(builder: (context) => Splash());
     case profileViewRoute:
@@ -57,13 +62,20 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case userAllViewRoute:
       return MaterialPageRoute(builder: (context) => UserAllSaScreen());
     case pdfViewRoute:
-      return MaterialPageRoute(builder: (context) => MyApp(url: settings.arguments as String));
+      return MaterialPageRoute(
+          builder: (context) => MyApp(url: settings.arguments as String));
     case timelineViewRoute:
-      return MaterialPageRoute(builder: (context) => TimelinePage(nim: settings.arguments as String ));
+      return MaterialPageRoute(
+          builder: (context) =>
+              TimelinePage(nim: settings.arguments as String));
     case newsDetailsViewRoute:
-      return MaterialPageRoute(builder: (context) => NewsDetailPage(userId: settings.arguments as String));
+      return MaterialPageRoute(
+          builder: (context) =>
+              NewsDetailPage(userId: settings.arguments as String));
     case notifDetailsViewRoute:
-      return MaterialPageRoute(builder: (context) => AktivitasDetilScreen(idNt: settings.arguments as String));
+      return MaterialPageRoute(
+          builder: (context) =>
+              AktivitasDetilScreen(idNt: settings.arguments as String));
     default:
       return MaterialPageRoute(builder: (context) => LandingPage());
   }
