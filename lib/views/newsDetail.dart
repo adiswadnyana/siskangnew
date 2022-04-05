@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_new, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:SisKa/utils/colors.dart';
 import 'package:SisKa/models/api/api_service.dart';
@@ -195,7 +197,7 @@ Widget _getkonten( BuildContext context) {
         ),
       ),
 
-       SizedBox(
+       const SizedBox(
                 height: 2.0,
               ),
               new Center(
@@ -204,7 +206,7 @@ Widget _getkonten( BuildContext context) {
                         child: FlatButton.icon(
                               color: Colors.white,
                               icon: new IconTheme(
-                                  data: new IconThemeData(
+                                  data: const IconThemeData(
                                       color: Colors.blue), 
                                   child: new Icon(LineIcons.download),
                               ), 

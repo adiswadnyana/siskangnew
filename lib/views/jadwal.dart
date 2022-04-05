@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const, prefer_const_constructors, unnecessary_new
+
 import 'package:SisKa/models/api/api_service.dart';
 import 'package:SisKa/models/jadwal.dart';
 import 'package:flutter/material.dart';
