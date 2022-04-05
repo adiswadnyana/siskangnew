@@ -182,6 +182,8 @@ class ApiService {
       client.close();
       return true;
     } else {
+      await prefs.clear();
+      client.close();
       return false;
     }
   }
