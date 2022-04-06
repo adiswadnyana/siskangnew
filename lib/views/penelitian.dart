@@ -11,6 +11,8 @@ import 'package:SisKa/_routing/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 
+import '../models/globalModel.dart';
+
 class PenelitianScreen extends StatefulWidget {
   @override
   PenelitianScreen({Key? key}) : super(key: key);
@@ -362,7 +364,6 @@ class _PenelitianScreenState extends State<PenelitianScreen> {
                               ),
                             ),
                             child: Column(
-                              // Replace with a Row for horizontal icon + text
                               children: <Widget>[
                                 Text(
                                   "Timeline",
@@ -377,13 +378,22 @@ class _PenelitianScreenState extends State<PenelitianScreen> {
                           padding: const EdgeInsets.all(1.0),
                           child: TextButton(
                             onPressed: () {
-                              setState(() {
-                                Navigator.pushNamed(
-                                  context,
-                                  pdfViewRoute,
-                                  arguments: penelitian.fileProposal,
-                                );
-                              });
+                              if (penelitian.fileProposal == null) {
+                                showFlushbar(
+                                    "Perhatian",
+                                    "Data Proposal tidak tersedia",
+                                    LineIcons.exclamationCircle,
+                                    Colors.orange,
+                                    context);
+                              } else {
+                                setState(() {
+                                  Navigator.pushNamed(
+                                    context,
+                                    pdfViewRoute,
+                                    arguments: penelitian.fileProposal,
+                                  );
+                                });
+                              }
                             },
                             child: Column(
                               // Replace with a Row for horizontal icon + text
@@ -401,15 +411,22 @@ class _PenelitianScreenState extends State<PenelitianScreen> {
                           padding: const EdgeInsets.all(1.0),
                           child: TextButton(
                             onPressed: () {
-                              setState(() {
-                                Navigator.pushNamed(
-                                  context,
-                                  pdfViewRoute,
-                                  arguments: penelitian.fileTesis,
-                                );
-                              });
-
-                              // _launchURL(penelitian.fileTesis);
+                              if (penelitian.fileProposal == null) {
+                                showFlushbar(
+                                    "Perhatian",
+                                    "Data Tesis tidak tersedia",
+                                    LineIcons.exclamationCircle,
+                                    Colors.orange,
+                                    context);
+                              } else {
+                                setState(() {
+                                  Navigator.pushNamed(
+                                    context,
+                                    pdfViewRoute,
+                                    arguments: penelitian.fileTesis,
+                                  );
+                                });
+                              }
                             },
                             child: Column(
                               // Replace with a Row for horizontal icon + text
