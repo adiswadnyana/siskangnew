@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:SisKa/models/api/api_service.dart';
 import 'package:SisKa/_routing/routes.dart';
 import 'package:SisKa/models/userAll.dart';
@@ -18,8 +20,8 @@ class _UserAllSaScreenState extends State<UserAllSaScreen> {
   List<DropdownMenuItem> items = [];
   String selectedValue = "-";
   late BuildContext ctx;
-  ApiService apiService = new ApiService();
-  TextEditingController _textcari = new TextEditingController();
+  ApiService apiService = ApiService();
+  TextEditingController _textcari = TextEditingController();
   List<UserAll> listData = <UserAll>[];
   List<UserAll> listDataUse = <UserAll>[];
   AssetImage? logoKet;
@@ -185,11 +187,11 @@ class _UserAllSaScreenState extends State<UserAllSaScreen> {
                       ),
                     ),
                   ),
-                  new Container(
+                  Container(
                     padding: const EdgeInsets.only(top: 270.0),
                     height: 290.0,
                     width: 250.0,
-                    child: new Text(
+                    child: Text(
                       'Terjadi Kesalahan, coba lagi nanti..',
                       textAlign: TextAlign.center,
                     ),
@@ -222,11 +224,11 @@ class _UserAllSaScreenState extends State<UserAllSaScreen> {
                         ),
                       ),
                     ),
-                    new Container(
+                    Container(
                       padding: const EdgeInsets.only(top: 270.0),
                       height: 290.0,
                       width: 250.0,
-                      child: new Text(
+                      child: Text(
                         'Tidak Ada Data..',
                         textAlign: TextAlign.center,
                       ),
@@ -240,8 +242,7 @@ class _UserAllSaScreenState extends State<UserAllSaScreen> {
           } else {
             return Center(
               child: CircularProgressIndicator(
-                valueColor:
-                    new AlwaysStoppedAnimation<Color>(Colors.blueAccent),
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),
               ),
             );
           }
@@ -262,7 +263,7 @@ class _UserAllSaScreenState extends State<UserAllSaScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 index == 0
-                    ? new Container(
+                    ? Container(
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(color: Colors.transparent),
                         child: DropdownButton<String>(
@@ -309,7 +310,7 @@ class _UserAllSaScreenState extends State<UserAllSaScreen> {
                           value: selectedValue,
                           isExpanded: true,
                         ))
-                    : new Container(
+                    : Container(
                         width: MediaQuery.of(context).size.width,
                         child: _isi(jadwals, context),
                       ),
