@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_new, prefer_const_constructors
+
 import 'package:SisKa/models/api/api_service.dart';
 import 'package:SisKa/models/masaStudi.dart';
 import 'package:SisKa/models/masaStudiCount.dart';

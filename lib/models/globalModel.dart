@@ -22,6 +22,6 @@ void showFlushbar(String title, String message, IconData icon, Color color,
       color: color,
     ),
     leftBarIndicatorColor: color,
-    duration: Duration(seconds: 3),
-  )..show(context);
+    duration: const Duration(seconds: 3),
+  ).show(context);
 }

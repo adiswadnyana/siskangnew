@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:SisKa/_routing/routes.dart';
 import 'package:SisKa/utils/colors.dart';
@@ -50,16 +52,14 @@ class _LoginPageState extends State<LoginPage> {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return http.post(url, body: body).then((http.Response response) {
       if (response.body == null) {
-        throw new Exception("Error while fetching data");
+        throw Exception("Error while fetching data");
       }
 
       Map<String, dynamic> user = jsonDecode(response.body);
       prefs.setString('KodeUser', '${user['Kode_userKin']}');
       prefs.setString('NamaUser', '${user['Nama_userKin']}');
       final nama1 = '${user['NamaUser']}';
-      print(nama1);
       final nama = prefs.getString('NamaUser');
-      print(nama);
       return Response.fromJson(json.decode(response.body));
     });
   }
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
       if (isSuccess) {
         setState(() {
           _saving = false;
-          Navigator.pushNamed(context, splashViewRoute);
+          Navigator.pushReplacementNamed(context, splashViewRoute);
         });
       } else {
         setState(() {
@@ -105,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
           "Silahkan Masukkan Username dan Password!",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 18.0,
+            fontSize: 15.0,
             fontWeight: FontWeight.w500,
           ),
         )
@@ -167,28 +167,27 @@ class _LoginPageState extends State<LoginPage> {
 
     final loginBtn = Container(
       margin: EdgeInsets.only(top: 40.0),
-      height: 60.0,
+      height: 50.0,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(7.0),
         border: Border.all(color: Colors.white),
         color: Colors.white,
       ),
-      child: RaisedButton(
-        elevation: 5.0,
+      child: ElevatedButton(
         onPressed: () {
           _callPostAPIng();
         },
-        color: Colors.white,
-        shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(7.0),
-        ),
+        style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            textStyle: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.w600,
+            )),
         child: Text(
           'LOGIN',
           style: TextStyle(
-            fontWeight: FontWeight.w800,
-            fontSize: 20.0,
-          ),
+              fontWeight: FontWeight.w500, fontSize: 20.0, color: Colors.black),
         ),
       ),
     );

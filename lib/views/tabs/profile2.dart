@@ -191,7 +191,7 @@ class _Profile2 extends State<Profile2> {
                               Navigator.pushNamed(
                                 context,
                                 timelineViewRoute,
-                                arguments: "Mhs",
+                                arguments: "nim",
                               );
                             });
                           },

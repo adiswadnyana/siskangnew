@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_new, prefer_is_empty
+// ignore_for_file: prefer_const_constructors, unnecessary_new, prefer_is_empty, prefer_const_literals_to_create_immutables
 
 import 'package:SisKa/models/api/api_service.dart';
 import 'package:SisKa/models/penelitian.dart';
@@ -321,8 +321,7 @@ class _PenelitianScreenState extends State<PenelitianScreen> {
                     children: <Widget>[
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: FlatButton.icon(
-                          color: Colors.transparent,
+                        child: TextButton.icon(
                           icon: new IconTheme(
                             data: new IconThemeData(color: Colors.blue),
                             child: new Icon(LineIcons.users),
@@ -347,7 +346,7 @@ class _PenelitianScreenState extends State<PenelitianScreen> {
                     Expanded(
                       child: Padding(
                           padding: const EdgeInsets.all(1.0),
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {
                               setState(() {
                                 Navigator.pushNamed(
@@ -357,8 +356,11 @@ class _PenelitianScreenState extends State<PenelitianScreen> {
                                 );
                               });
                             },
-                            color: Colors.transparent,
-                            padding: EdgeInsets.all(1.0),
+                            style: TextButton.styleFrom(
+                              textStyle: TextStyle(
+                                color: Colors.transparent,
+                              ),
+                            ),
                             child: Column(
                               // Replace with a Row for horizontal icon + text
                               children: <Widget>[
@@ -373,7 +375,7 @@ class _PenelitianScreenState extends State<PenelitianScreen> {
                     Expanded(
                       child: Padding(
                           padding: const EdgeInsets.all(1.0),
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {
                               setState(() {
                                 Navigator.pushNamed(
@@ -383,8 +385,6 @@ class _PenelitianScreenState extends State<PenelitianScreen> {
                                 );
                               });
                             },
-                            color: Colors.transparent,
-                            padding: EdgeInsets.all(1.0),
                             child: Column(
                               // Replace with a Row for horizontal icon + text
                               children: <Widget>[
@@ -399,7 +399,7 @@ class _PenelitianScreenState extends State<PenelitianScreen> {
                     Expanded(
                       child: Padding(
                           padding: const EdgeInsets.all(1.0),
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {
                               setState(() {
                                 Navigator.pushNamed(
@@ -411,8 +411,6 @@ class _PenelitianScreenState extends State<PenelitianScreen> {
 
                               // _launchURL(penelitian.fileTesis);
                             },
-                            color: Colors.transparent,
-                            padding: EdgeInsets.all(1.0),
                             child: Column(
                               // Replace with a Row for horizontal icon + text
                               children: <Widget>[

@@ -20,41 +20,28 @@ class _Splash extends State<Splash> {
         if (success) {
           apiService.getAuthJab().then((jab) async {
             if (jab == '1') {
-              // setState(() {
-              // Navigator.pushNamed(context, profileViewRoute);
               Navigator.pushReplacementNamed(
                 context,
                 'homeAdmin',
                 arguments: 0,
               );
-              // });
             } else if (jab == '0') {
-              // setState(() {
-              // Navigator.pushNamed(context, homeAdminViewRoute,);
               Navigator.pushReplacementNamed(
                 context,
                 'home',
                 arguments: 0,
               );
-              //Navigator.pushNamed(context, homeAdminViewRoute,arguments: 0, );
-              //});
             } else {
-              // setState(() {
-              // Navigator.pushNamed(context, homeAdminViewRoute,);
               Navigator.pushReplacementNamed(
                 context,
                 'homeDosen',
                 arguments: 0,
               );
-              //Navigator.pushNamed(context, homeAdminViewRoute,arguments: 0, );
-              //});
-
             }
           });
         } else {
           print('redirect landing');
           setState(() {
-            //Navigator.pushNamed(context, landingViewRoute);
             Navigator.pushReplacementNamed(context, '/');
           });
         }
@@ -64,41 +51,10 @@ class _Splash extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: CircularProgressIndicator(),
       ),
     );
-    // return SplashScreen.timer(
-    //   seconds: 1,
-    //   title: const Text(
-    //     'SiSka',
-    //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-    //   ),
-    //   loaderColor: Colors.blue,
-    //   loadingText: const Text('Loading...'),
-    //   loadingTextPadding: const EdgeInsets.only(top: 5.0),
-    //   image: Image.asset(
-    //     'assets/images/LogoUndiksha.png',
-    //   ),
-    //   backgroundColor: Colors.white,
-    //   photoSize: 100.0,
-    // );
   }
 }
-
-// class AfterSplash extends StatelessWidget {
-
-//   Widget build(BuildContext context) {
-//     checkIfAuthenticated().then((success) {
-//       if (success) {
-//         Navigator.pushReplacementNamed(context, '/home');
-//       } else {
-//         Navigator.pushReplacementNamed(context, '/login');
-//       }
-//     });
-
-//     return Center(
-//       child: CircularProgressIndicator(),
-//     );
-//   }
