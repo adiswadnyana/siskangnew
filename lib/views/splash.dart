@@ -26,9 +26,9 @@ class _Splash extends State<Splash> {
                 arguments: 0,
               );
             } else if (jab == '0') {
-              Navigator.pushReplacementNamed(
-                context,
+              Navigator.of(context).pushNamedAndRemoveUntil(
                 'home',
+                (Route<dynamic> route) => false,
                 arguments: 0,
               );
             } else {

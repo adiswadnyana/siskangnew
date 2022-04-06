@@ -35,27 +35,32 @@ class ApiService {
     if (response.body == "null") {
       return false;
     } else {
-      Map<String, dynamic> user = jsonDecode(response.body);
-      final jabatan = '${user['jabatan']}';
-      if (jabatan == '1') {
-        prefs.setString('IsAdmin', '1');
+      Map<String, dynamic>? user = jsonDecode(response.body);
+      if (user != null) {
+        final jabatan = '${user['jabatan']}';
+        if (jabatan == '1') {
+          prefs.setString('IsAdmin', '1');
+        } else {
+          prefs.setString('IsAdmin', '0');
+        }
+        final namaus = prefs.setString('Nama', '${user['Nama']}!');
+        print(namaus);
+        prefs.setString('Nama', '${user['Nama']}');
+        prefs.setString('Nim', '${user['Nim']}');
+        prefs.setString('Id_prodi', '${user['Id_prodi']}');
+        prefs.setString('Kode_prodi', '${user['Kode_prodi']}');
+        prefs.setString('Email', '${user['Email']}');
+        prefs.setString('Foto', '${user['Foto']}');
+        prefs.setString('Username', '${user['Username']}');
+        prefs.setString('Password', '${user['Password']}');
+        prefs.setString('PasswordPlain', '${user['Passwordplain']}');
+        prefs.setString('Nim_Nama', '${user['Nim_Nama']}');
+        prefs.setString('Jabatan', '${user['jabatan']}');
+
+        return true;
       } else {
-        prefs.setString('IsAdmin', '0');
+        return false;
       }
-      final namaus = prefs.setString('Nama', '${user['Nama']}!');
-      print(namaus);
-      prefs.setString('Nama', '${user['Nama']}');
-      prefs.setString('Nim', '${user['Nim']}');
-      prefs.setString('Id_prodi', '${user['Id_prodi']}');
-      prefs.setString('Kode_prodi', '${user['Kode_prodi']}');
-      prefs.setString('Email', '${user['Email']}');
-      prefs.setString('Foto', '${user['Foto']}');
-      prefs.setString('Username', '${user['Username']}');
-      prefs.setString('Password', '${user['Password']}');
-      prefs.setString('PasswordPlain', '${user['Passwordplain']}');
-      prefs.setString('Nim_Nama', '${user['Nim_Nama']}');
-      prefs.setString('Jabatan', '${user['jabatan']}');
-      return true;
     }
   }
 

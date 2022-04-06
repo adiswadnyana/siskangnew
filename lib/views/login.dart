@@ -194,19 +194,20 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       body: ModalProgressHUD(
-          child: SingleChildScrollView(
-            child: Container(
-              padding: EdgeInsets.only(top: 50.0, left: 30.0, right: 30.0),
-              decoration: BoxDecoration(gradient: primaryGradient),
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[pageTitle, loginForm, loginBtn],
-              ),
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(top: 50.0, left: 30.0, right: 30.0),
+            decoration: BoxDecoration(gradient: primaryGradient),
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[pageTitle, loginForm, loginBtn],
             ),
           ),
-          inAsyncCall: _saving),
+        ),
+        inAsyncCall: _saving,
+      ),
     );
   }
 }
