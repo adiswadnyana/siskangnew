@@ -103,7 +103,7 @@ class _SettingProfileState extends State<SettingProfile> {
     final passwordlama = prefs.getString('PasswordPlain');
     String image;
     if (_image != null) {
-      image = _image!.path;
+      image = _image!.path.split('/').last.trim();
     } else {
       image = 'user.png';
     }
@@ -123,12 +123,12 @@ class _SettingProfileState extends State<SettingProfile> {
             context: context,
             builder: (context) {
               return CupertinoAlertDialog(
-                title: Text("Konfirmasi"),
-                content: Text("Yakin mengubah data?"),
+                title: const Text("Konfirmasi"),
+                content: const Text("Yakin mengubah data?"),
                 actions: <Widget>[
                   CupertinoDialogAction(
                       isDefaultAction: true,
-                      child: Text("Ya"),
+                      child: const Text("Ya"),
                       onPressed: () {
                         apiService.settingProfile(_image!, {
                           'password': _password.text,
@@ -139,7 +139,7 @@ class _SettingProfileState extends State<SettingProfile> {
                         });
                       }),
                   CupertinoDialogAction(
-                    child: Text("Batal"),
+                    child: const Text("Batal"),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -164,13 +164,13 @@ class _SettingProfileState extends State<SettingProfile> {
             context: context,
             builder: (context) {
               return CupertinoAlertDialog(
-                title: Text("Konfirmasi"),
-                content:
-                    Text("Yakin mengubah data?\nPerlu login ulang setelah ini"),
+                title: const Text("Konfirmasi"),
+                content: const Text(
+                    "Yakin mengubah data?\nPerlu login ulang setelah ini"),
                 actions: <Widget>[
                   CupertinoDialogAction(
                       isDefaultAction: true,
-                      child: Text("Ya"),
+                      child: const Text("Ya"),
                       onPressed: () {
                         apiService.settingProfile(_image!, {
                           'password': _passwordConf.text,
@@ -181,7 +181,7 @@ class _SettingProfileState extends State<SettingProfile> {
                         });
                       }),
                   CupertinoDialogAction(
-                    child: Text("Batal"),
+                    child: const Text("Batal"),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -191,68 +191,11 @@ class _SettingProfileState extends State<SettingProfile> {
             });
       }
     }
-
-    //  if(_password.text != passwordlama){
-    //   showFlushbar("Perhatian","Password lama salah", LineIcons.exclamationCircle, Colors.orange, context);
-    // } else  if(passwordalpha==false || _password.text.length <6 ) {
-    //   showFlushbar("Perhatian","Password minimal 6 karakter, harus ada huruf dan angka", LineIcons.warning, Colors.orange, context);
-    // }else if(_passwordbaru.text!=_passwordConf.text){
-    //   showFlushbar("Perhatian","Konformasi password baru tidak cocok", LineIcons.warning, Colors.orange, context);
-    // }else{
-    //   showDialog(
-    //       context: context,
-    //       builder: (context) {
-    //         return CupertinoAlertDialog(
-    //           title: Text("Konfirmasi"),
-    //           content: Text("Yakin mengubah data? Login ulang setelah proses ini"),
-    //           actions: <Widget>[
-    //             CupertinoDialogAction(
-    //                 isDefaultAction: true,
-    //                 child: Text("Ya"),
-    //                 onPressed: () {
-    //                   apiService.settingProfile(_image, {
-    //                     'password': _passwordConf.text,
-    //                     'foto':image,
-    //                     'no_telp':_noTelp,
-    //                   }).then((isSuccess) {
-    //                     logout(context);
-    //
-    //                   });
-    //                 }
-    //             ),
-    //
-    //             CupertinoDialogAction(
-    //               child: Text("Batal"),
-    //               onPressed: () { Navigator.pop(context);},
-    //             ),
-    //
-    //           ],
-    //         );
-    //       });
-    // }
   }
-
-  //  void _callPostAPIng() {
-  //       apiService.settingProfile(_image, {
-  //         'password': _passwordConf.text,
-  //         'foto':_image.path,
-  //       }).then((isSuccess) {
-  //         setState(()  {
-  //              if (isSuccess=='1') {
-  //                showInfoFlushbarBerhasil();
-  //               } else if (isSuccess=='0') {
-  //                 showInfoFlushbarSudahDaftar();
-  //               }else{
-  //                 showInfoFlushbarAktif();
-  //               }
-  //           });
-
-  //       });
-  //     }
 
   Future getImage() async {
     final picker = ImagePicker();
-    final image = await picker.getImage(
+    final image = await picker.pickImage(
       source: ImageSource.gallery,
       imageQuality: 60,
     );
@@ -272,8 +215,8 @@ class _SettingProfileState extends State<SettingProfile> {
         color: color,
       ),
       leftBarIndicatorColor: color,
-      duration: Duration(seconds: 3),
-    )..show(context);
+      duration: const Duration(seconds: 3),
+    ).show(context);
   }
 
   @override
@@ -295,7 +238,7 @@ class _SettingProfileState extends State<SettingProfile> {
         ),
       ),
       keyboardType: TextInputType.text,
-      style: TextStyle(color: Colors.black),
+      style: const TextStyle(color: Colors.black),
       cursorColor: Colors.black,
       obscureText: true,
     );
@@ -317,7 +260,7 @@ class _SettingProfileState extends State<SettingProfile> {
         ),
       ),
       keyboardType: TextInputType.text,
-      style: TextStyle(color: Colors.black),
+      style: const TextStyle(color: Colors.black),
       cursorColor: Colors.black,
       obscureText: true,
     );
@@ -340,7 +283,7 @@ class _SettingProfileState extends State<SettingProfile> {
         ),
       ),
       keyboardType: TextInputType.text,
-      style: TextStyle(color: Colors.black),
+      style: const TextStyle(color: Colors.black),
       cursorColor: Colors.black,
     );
 
@@ -362,7 +305,7 @@ class _SettingProfileState extends State<SettingProfile> {
         ),
       ),
       keyboardType: TextInputType.text,
-      style: TextStyle(color: Colors.black),
+      style: const TextStyle(color: Colors.black),
       cursorColor: Colors.black,
     );
 
@@ -384,7 +327,7 @@ class _SettingProfileState extends State<SettingProfile> {
         ),
       ),
       keyboardType: TextInputType.text,
-      style: TextStyle(color: Colors.black),
+      style: const TextStyle(color: Colors.black),
       cursorColor: Colors.black,
     );
 
@@ -405,19 +348,19 @@ class _SettingProfileState extends State<SettingProfile> {
         ),
       ),
       keyboardType: TextInputType.text,
-      style: TextStyle(color: Colors.black),
+      style: const TextStyle(color: Colors.black),
       cursorColor: Colors.black,
       obscureText: true,
     );
 
-    final formFieldSpacing = SizedBox(
+    final formFieldSpacing = const SizedBox(
       height: 15.0,
     );
 
     final foto = FloatingActionButton(
       onPressed: getImage,
       tooltip: 'Pilih Foto',
-      child: Icon(Icons.add_a_photo),
+      child: const Icon(Icons.add_a_photo),
     );
 
     final fotoadd = Container(
@@ -425,7 +368,7 @@ class _SettingProfileState extends State<SettingProfile> {
       width: 200.0,
       child: Center(
         child: _image == null
-            ? Text('Tidak Ada Foto Dipilih.')
+            ? const Text('Tidak Ada Foto Dipilih.')
             : Image.file(_image!),
       ),
     );
@@ -447,7 +390,7 @@ class _SettingProfileState extends State<SettingProfile> {
     );
 
     final registerForm = Padding(
-      padding: EdgeInsets.only(top: 30.0),
+      padding: const EdgeInsets.only(top: 30.0),
       child: Form(
         key: _formKey,
         child: Column(
@@ -467,7 +410,7 @@ class _SettingProfileState extends State<SettingProfile> {
             formFieldSpacing,
             fotolama,
             formFieldSpacing,
-            _image == null ? Text('Tidak Ada Foto Dipilih.') : fotoadd,
+            _image == null ? const Text('Tidak Ada Foto Dipilih.') : fotoadd,
             formFieldSpacing,
             foto
           ],
@@ -476,9 +419,9 @@ class _SettingProfileState extends State<SettingProfile> {
     );
 
     final submitBtn = Padding(
-      padding: EdgeInsets.only(top: 20.0),
+      padding: const EdgeInsets.only(top: 20.0),
       child: Container(
-        margin: EdgeInsets.only(top: 10.0, bottom: 20.0),
+        margin: const EdgeInsets.only(top: 10.0, bottom: 20.0),
         height: 60.0,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
@@ -494,9 +437,9 @@ class _SettingProfileState extends State<SettingProfile> {
             onPressed: () {
               simpan(context);
             },
-            child: Text(
+            child: const Text(
               'SIMPAN',
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.w800,
                 fontSize: 20.0,
                 color: Colors.white,
@@ -509,17 +452,17 @@ class _SettingProfileState extends State<SettingProfile> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pengaturan Akun"),
+        title: const Text("Pengaturan Akun"),
       ),
       body: ModalProgressHUD(
           child: SingleChildScrollView(
             child: Container(
-              padding: EdgeInsets.only(top: 10.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: Column(
                 children: <Widget>[
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    padding: EdgeInsets.only(left: 30.0, right: 30.0),
+                    padding: const EdgeInsets.only(left: 30.0, right: 30.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[registerForm, submitBtn],

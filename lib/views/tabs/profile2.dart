@@ -65,7 +65,7 @@ class _Profile2 extends State<Profile2> {
         BotToast.showLoading();
         _namaUser = listProfile![0].nimNama!;
         _jurusan = listProfile![0].namaProdi!;
-        _foto = listProfile![0].foto!;
+        _foto = listProfile![0].foto!.replaceAll('%0D%0A', '');
         _jabatan = jabatans;
         _studiAwal = listMasaStudi![0].tglAwalStudi!;
         _studiAkhir = listMasaStudi![0].tglAkhirStudi!;
@@ -74,6 +74,7 @@ class _Profile2 extends State<Profile2> {
         _isAdmin = prefs.getString('IsAdmin')!;
         BotToast.closeAllLoading();
       });
+      print('foto =$_foto');
     }
   }
 
@@ -124,7 +125,7 @@ class _Profile2 extends State<Profile2> {
   Widget build(BuildContext context) {
     final hr = const Divider();
     final userImage = Positioned(
-      top: 150.0, // (background container size) - (circle height / 2)
+      top: 150.0,
       child: Container(
         height: 90.0,
         width: 90.0,
