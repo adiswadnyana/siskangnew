@@ -10,7 +10,6 @@ import 'package:skeleton_text/skeleton_text.dart';
 import 'package:SisKa/_routing/routes.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
-
 import '../models/globalModel.dart';
 
 class PenelitianScreen extends StatefulWidget {
