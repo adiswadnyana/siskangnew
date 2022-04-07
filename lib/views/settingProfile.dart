@@ -191,69 +191,12 @@ class _SettingProfileState extends State<SettingProfile> {
             });
       }
     }
-
-    //  if(_password.text != passwordlama){
-    //   showFlushbar("Perhatian","Password lama salah", LineIcons.exclamationCircle, Colors.orange, context);
-    // } else  if(passwordalpha==false || _password.text.length <6 ) {
-    //   showFlushbar("Perhatian","Password minimal 6 karakter, harus ada huruf dan angka", LineIcons.warning, Colors.orange, context);
-    // }else if(_passwordbaru.text!=_passwordConf.text){
-    //   showFlushbar("Perhatian","Konformasi password baru tidak cocok", LineIcons.warning, Colors.orange, context);
-    // }else{
-    //   showDialog(
-    //       context: context,
-    //       builder: (context) {
-    //         return CupertinoAlertDialog(
-    //           title: Text("Konfirmasi"),
-    //           content: Text("Yakin mengubah data? Login ulang setelah proses ini"),
-    //           actions: <Widget>[
-    //             CupertinoDialogAction(
-    //                 isDefaultAction: true,
-    //                 child: Text("Ya"),
-    //                 onPressed: () {
-    //                   apiService.settingProfile(_image, {
-    //                     'password': _passwordConf.text,
-    //                     'foto':image,
-    //                     'no_telp':_noTelp,
-    //                   }).then((isSuccess) {
-    //                     logout(context);
-    //
-    //                   });
-    //                 }
-    //             ),
-    //
-    //             CupertinoDialogAction(
-    //               child: Text("Batal"),
-    //               onPressed: () { Navigator.pop(context);},
-    //             ),
-    //
-    //           ],
-    //         );
-    //       });
-    // }
   }
-
-  //  void _callPostAPIng() {
-  //       apiService.settingProfile(_image, {
-  //         'password': _passwordConf.text,
-  //         'foto':_image.path,
-  //       }).then((isSuccess) {
-  //         setState(()  {
-  //              if (isSuccess=='1') {
-  //                showInfoFlushbarBerhasil();
-  //               } else if (isSuccess=='0') {
-  //                 showInfoFlushbarSudahDaftar();
-  //               }else{
-  //                 showInfoFlushbarAktif();
-  //               }
-  //           });
-
-  //       });
-  //     }
 
   Future getImage() async {
     final picker = ImagePicker();
-    final image = await picker.getImage(
-      source: ImageSource.gallery,
+    final image = await picker.pickImage(
+      source: ImageSource.camera,
       imageQuality: 60,
     );
     setState(() {
@@ -273,7 +216,7 @@ class _SettingProfileState extends State<SettingProfile> {
       ),
       leftBarIndicatorColor: color,
       duration: Duration(seconds: 3),
-    )..show(context);
+    ).show(context);
   }
 
   @override

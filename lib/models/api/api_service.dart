@@ -685,9 +685,7 @@ class ApiService {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     Map<String, dynamic> user = data;
     if (imageFile != null) {
-      var stream =
-          new http.ByteStream(DelegatingStream.typed(imageFile.openRead()));
-      // var stream  = new http.ByteStream(imageFile.openRead()); stream.cast();
+      var stream = new http.ByteStream(Stream.castFrom(imageFile.openRead()));
       var length = await imageFile.length();
       var uri = Uri.parse("$baseUrl/Siska_api/upload_foto");
       var request = new http.MultipartRequest("POST", uri);
