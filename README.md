@@ -3,7 +3,6 @@
 Project SiSka-NG Pascasarjana UNDIKSHA
 
 
-#Cara Instalasi
 # Improvement SIsKA-NG Mobile
 Aplikasi SIsKA-NG Mobile merupakan aplikasi yang dirancang untuk memudahkan civitas akademika dalam mencari kajian, informasi jadwal ujian, informasi alur penelitian, pengumuman dan berita bagi pengguna yang nantinya dapat mengakses aplikasi ini.
 * Getting Started:
