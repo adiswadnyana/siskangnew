@@ -7,6 +7,7 @@ import 'package:SisKa/utils/utils.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotifPenerimaScreen extends StatefulWidget {
   @override

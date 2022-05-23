@@ -112,6 +112,10 @@ class _HomePageDosenState extends State<HomePageDosen> {
         BottomNavigationBarItem(
           icon: Icon(LineIcons.user),
           label: 'Profile',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(LineIcons.user),
+          label: 'Notifikasi',
         )
       ],
     );
