@@ -1,7 +1,6 @@
 import 'package:SisKa/_routing/routes.dart';
 import 'package:SisKa/models/api/api_service.dart';
 import 'package:SisKa/models/Notif.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:SisKa/utils/utils.dart';
 import 'package:line_icons/line_icons.dart';
@@ -24,13 +23,16 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
   String? ket;
   String? jabatan;
   bool activeSearch = false;
-  String messageTitle = "Empty";
-  String notificationAlert = "alert";
-
-  FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
   void initState() {
     super.initState();
+    ctx = context;
+    BackButtonInterceptor.add(myInterceptor);
+    activeSearch = false;
+    loadData();
+    _textcari.addListener(() {
+      filterData(_textcari.text);
+    });
   }
 
   @override
@@ -87,34 +89,7 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
     return null;
   }
 
-  Future<void> onSetupFirebaseMessaging() async {
-    NotificationSettings settings = await _firebaseMessaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
-
-    print('User granted permission: ${settings.authorizationStatus}');
-  }
-
-  void listenForeground() {
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('Got a message whilst in the foreground!');
-      print('Message data: ${message.data}');
-
-      if (message.notification != null) {
-        print('Message also contained a notification: ${message.notification}');
-      }
-    });
-  }
-
   Widget build(BuildContext context) {
-    onSetupFirebaseMessaging();
-    listenForeground();
     return Scaffold(
       appBar: _appBar(),
       body: Scrollbar(

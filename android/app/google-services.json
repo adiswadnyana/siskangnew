@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "831061067882",
+    "project_id": "siskanew-95c55",
+    "storage_bucket": "siskanew-95c55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831061067882:android:ae1ac084ed3c252869e213",
+        "android_client_info": {
+          "package_name": "com.example.siskangnew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "831061067882-mv7ic7lqecbe7d215lihb3b828q73198.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxgPxoLRxxHh6KipIpnXjIfAFAutczLUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "831061067882-mv7ic7lqecbe7d215lihb3b828q73198.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
