@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:SisKa/app.dart';
 
 Future<void> backgroundHandler(RemoteMessage message) async {
-  	print(message.data.toString());
- 	print(message.notification!.title);
-	}
+  print(message.data.toString());
+  print(message.notification!.title);
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
