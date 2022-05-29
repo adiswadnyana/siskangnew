@@ -4,14 +4,25 @@ import 'package:SisKa/models/Notif.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:SisKa/utils/utils.dart';
+import 'package:SisKa/views/demo.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:SisKa/notificationservice/local_notification_service.dart';
 
 class NotifPenerimaScreen extends StatefulWidget {
   @override
   NotifPenerimaScreen({Key? key}) : super(key: key);
   _NotifPenerimaScreenState createState() => _NotifPenerimaScreenState();
+}
+
+class PushNotification {
+  PushNotification({
+    this.title,
+    this.body,
+  });
+  String? title;
+  String? body;
 }
 
 class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
@@ -26,11 +37,65 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
   bool activeSearch = false;
   String messageTitle = "Empty";
   String notificationAlert = "alert";
-
+  String deviceTokenToSendPushNotification = "";
+  List notifications = [];
   FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
   void initState() {
     super.initState();
+
+    // 1. This method call when app in terminated state and you get a notification
+    // when you click on notification app open from terminated state and you can get notification data in this method
+
+    FirebaseMessaging.instance.getInitialMessage().then(
+      (message) {
+        print("FirebaseMessaging.instance.getInitialMessage");
+        if (message != null) {
+          print("New Notification");
+          if (message.data['_id'] != null) {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => Demo(
+                  id: message.data['_id'],
+                ),
+              ),
+            );
+          }
+        }
+      },
+    );
+
+    // 2. This method only call when App in forground it mean app must be opened
+    FirebaseMessaging.onMessage.listen(
+      (message) {
+        print("FirebaseMessaging.onMessage.listen");
+        if (message.notification != null) {
+          print(message.notification!.title);
+          print(message.notification!.body);
+          print("message.data11 ${message.data}");
+          LocalNotificationService.createanddisplaynotification(message);
+        }
+      },
+    );
+
+    // 3. This method only call when App in background and not terminated(not closed)
+    FirebaseMessaging.onMessageOpenedApp.listen(
+      (message) {
+        print("FirebaseMessaging.onMessageOpenedApp.listen");
+        if (message.notification != null) {
+          print(message.notification!.title);
+          print(message.notification!.body);
+          print("message.data22 ${message.data['_id']}");
+        }
+      },
+    );
+  }
+
+  Future<void> getDeviceTokenToSendNotification() async {
+    final FirebaseMessaging _fcm = FirebaseMessaging.instance;
+    final token = await _fcm.getToken();
+    deviceTokenToSendPushNotification = token.toString();
+    print("Token Value $deviceTokenToSendPushNotification");
   }
 
   @override
@@ -102,38 +167,50 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
   }
 
   void listenForeground() {
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('Got a message whilst in the foreground!');
-      print('Message data: ${message.data}');
-
+    FirebaseMessaging.onMessage.listen((message) {
       if (message.notification != null) {
-        print('Message also contained a notification: ${message.notification}');
+        setState(() {
+          notifications.add(message.notification);
+        });
+        LocalNotificationService.createanddisplaynotification(message);
       }
     });
   }
 
   Widget build(BuildContext context) {
+    getDeviceTokenToSendNotification();
     onSetupFirebaseMessaging();
     listenForeground();
     return Scaffold(
       appBar: _appBar(),
-      body: Scrollbar(
-        child: RefreshIndicator(
-          child: _getkonten(context),
-          onRefresh: _refresh,
-        ),
+      body: ListView.builder(
+        itemCount: notifications.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+            elevation: 1.0,
+            child: ListTile(
+              leading: Icon(
+                Icons.notifications,
+                color: Colors.purple[300],
+                size: 35.0,
+              ),
+              title: Text(
+                notifications[index].title,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: Text(
+                notifications[index].body,
+                style: TextStyle(
+                  fontSize: 12.0,
+                ),
+              ),
+            ),
+          );
+        },
       ),
-      floatingActionButton: jabatan == '1'
-          ? FloatingActionButton(
-              onPressed: () {
-                setState(() {
-                  Navigator.pushNamed(context, notifSendViewRoute);
-                });
-              },
-              child: Icon(LineIcons.plus),
-              backgroundColor: Colors.green,
-            )
-          : null,
     );
   }
 

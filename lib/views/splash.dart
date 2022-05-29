@@ -15,7 +15,7 @@ class _Splash extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       apiService.getAuth().then((success) async {
         if (success) {
           apiService.getAuthJab().then((jab) async {
