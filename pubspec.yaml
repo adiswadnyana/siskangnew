@@ -114,6 +114,8 @@ flutter:
     - assets/images/notfound.png
     - assets/images/nodata.png
     - assets/images/notfound.gif
+    - assets/images/notification.png
+    - assets/images/notif.png
 dev_dependencies:
   flutter_lints: ^1.0.4
 

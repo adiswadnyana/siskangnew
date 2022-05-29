@@ -73,7 +73,6 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
           print(message.notification!.title);
           print(message.notification!.body);
           print("message.data11 ${message.data}");
-          LocalNotificationService.createanddisplaynotification(message);
         }
       },
     );
@@ -172,7 +171,6 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
         setState(() {
           notifications.add(message.notification);
         });
-        LocalNotificationService.createanddisplaynotification(message);
       }
     });
   }
@@ -197,14 +195,14 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
               title: Text(
                 notifications[index].title,
                 style: TextStyle(
-                  fontSize: 16.0,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               subtitle: Text(
                 notifications[index].body,
                 style: TextStyle(
-                  fontSize: 12.0,
+                  fontSize: 15.0,
                 ),
               ),
             ),

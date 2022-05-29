@@ -15,7 +15,6 @@ class FCM {
       print("user granted permission");
       foregroundNotification();
       backgroundNotification();
-      terminateNotification();
     }
 
     final token = _firebaseMessaging

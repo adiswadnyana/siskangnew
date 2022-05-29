@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
           _saving = false;
         });
 
-        showFlushbar("Perhatian", "Username atau paswword salah",
+        showFlushbar("Perhatian", "Username atau password salah",
             LineIcons.skullCrossbones, Colors.orange, context);
       }
     });

@@ -15,8 +15,8 @@ class NotifPenerimaScreen extends StatefulWidget {
 
 class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
   late BuildContext ctx;
-  ApiService apiService = new ApiService();
-  TextEditingController _textcari = new TextEditingController();
+  ApiService apiService = ApiService();
+  TextEditingController _textcari = TextEditingController();
   List<Notif> listData = <Notif>[];
   List<Notif> listDataUse = <Notif>[];
   AssetImage? logoKet;
@@ -132,11 +132,11 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
                       ),
                     ),
                   ),
-                  new Container(
+                  Container(
                     padding: const EdgeInsets.only(top: 270.0),
                     height: 290.0,
                     width: 250.0,
-                    child: new Text(
+                    child: Text(
                       'Terjadi Kesalahan, coba lagi nanti..',
                       textAlign: TextAlign.center,
                     ),
@@ -172,11 +172,11 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
                               ),
                             ),
                           ),
-                          new Container(
+                          Container(
                             padding: const EdgeInsets.only(top: 270.0),
                             height: 290.0,
                             width: 250.0,
-                            child: new Text(
+                            child: Text(
                               'Tidak Ada Data..',
                               textAlign: TextAlign.center,
                             ),
@@ -193,8 +193,7 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
           } else {
             return Center(
               child: CircularProgressIndicator(
-                valueColor:
-                    new AlwaysStoppedAnimation<Color>(Colors.blueAccent),
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.blueAccent),
               ),
             );
           }
@@ -209,44 +208,43 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
       child: ListView.builder(
         itemBuilder: (context, index) {
           Notif notifs = notif[index];
-          return new Padding(
+          return Padding(
               padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-              child: new Card(
+              child: Card(
                   elevation: 1.0,
                   color: notifs.isRead == '0'
                       ? Colors.lightBlue[50]
                       : Colors.white,
-                  child: new ListTile(
+                  child: ListTile(
                     leading: _jenisPesan(notifs),
-                    title: new Row(
+                    title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        new Flexible(
-                          child: new Container(
-                            padding: new EdgeInsets.only(right: 20.0),
-                            child: new Text(
+                        Flexible(
+                          child: Container(
+                            padding: EdgeInsets.only(right: 20.0),
+                            child: Text(
                               notifs.judul!,
                               overflow: TextOverflow.ellipsis,
-                              style: new TextStyle(
+                              style: TextStyle(
                                 fontSize: 14.0,
-                                color: new Color(0xFF212121),
+                                color: Color(0xFF212121),
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                         ),
-                        new Text(
+                        Text(
                           notifs.tglKirim!,
                           textAlign: TextAlign.end,
-                          style:
-                              new TextStyle(color: Colors.grey, fontSize: 10.0),
+                          style: TextStyle(color: Colors.grey, fontSize: 10.0),
                         ),
                       ],
                     ),
-                    subtitle: new Container(
+                    subtitle: Container(
                       height: 50.0,
                       padding: const EdgeInsets.only(top: 5.0),
-                      child: new GestureDetector(
+                      child: GestureDetector(
                         onTap: () {
                           setState(() {
                             Navigator.pushNamed(
@@ -256,11 +254,10 @@ class _NotifPenerimaScreenState extends State<NotifPenerimaScreen> {
                             );
                           });
                         },
-                        child: new Text(
+                        child: Text(
                           notifs.isi!,
                           overflow: TextOverflow.clip,
-                          style:
-                              new TextStyle(color: Colors.grey, fontSize: 15.0),
+                          style: TextStyle(color: Colors.grey, fontSize: 15.0),
                         ),
                       ),
                     ),
